@@ -5,8 +5,25 @@ export default {
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      colors: {
+        primary: '#BC8CD2',
+        primaryLight: '#D3B9DF',
+        primaryFaded: '#ECE1F1',
+        warning: '#F4BD50',
+        red: '#F45050',
+        main: {
+          0: '#ffffff',
+          5: '#F2F2F2',
+          12: '#E0E0E0',
+          25: '#BDBDBD',
+          50: '#828282',
+          75: '#4F4F4F',
+          100: '#000000',
+        },
+      },
       screens: {
-        xs: '480px',
+        xs: '420px',
+        lg: '1220px',
       },
       fontFamily: {
         ubuntu: ['"Ubuntu"', ...defaultTheme.fontFamily.sans],
