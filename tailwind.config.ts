@@ -11,6 +11,11 @@ export default {
         primaryFaded: '#ECE1F1',
         warning: '#F4BD50',
         red: '#F45050',
+        peach: {
+          light: '#ECBCB3',
+          normal: '#EAA79E',
+          darker: '#DF9186',
+        },
         main: {
           0: '#FFFFFF',
           5: '#F2F2F2',

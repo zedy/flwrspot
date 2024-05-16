@@ -12,16 +12,14 @@ type ButtonProperties = {
 };
 
 const DEFAULT_CLASS =
-  'h-10 px-5 text-sm font-medium text-main-0 flex font-montseratt bg-gradient-to-r from-[#EAA79E] to-[#ECBCB3] justify-center border-0 items-center rounded-full border-0 transition-all duration-300 ease-in-out focus:outline-none focus:ring-0 disabled:cursor-not-allowed';
+  'h-10 px-5 text-sm font-medium text-main-0 flex font-montseratt bg-gradient-to-r from-peach-normal to-peach-light justify-center border-0 items-center rounded-full border-0 transition-all duration-300 ease-in-out focus:outline-none focus:ring-0 disabled:cursor-not-allowed';
 
 /**
  * Basic function button component.
  * It cannot be used as a link, so please don't pass in
- * any anchors. For that use next/link.
+ * any anchors. For that use router link.
  *
- * The icons are passed in as React.ReactNode, currently
- * we're using Ant Design icons, but it can be type of icon
- * just as long as it's React.ReactNode.
+ * The icons are passed in as React.ReactNode.
  *
  * @params @see ButtonProperties
  * @returns React.ReactNode
