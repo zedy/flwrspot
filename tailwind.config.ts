@@ -12,7 +12,7 @@ export default {
         warning: '#F4BD50',
         red: '#F45050',
         main: {
-          0: '#ffffff',
+          0: '#FFFFFF',
           5: '#F2F2F2',
           12: '#E0E0E0',
           25: '#BDBDBD',
