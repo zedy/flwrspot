@@ -43,8 +43,19 @@ export default function Typography({
   isSr?: boolean;
   classes?: string;
 }>) {
+  let baseClass;
+
+  switch (component) {
+    case 'h1':
+      baseClass = classParser(DEFAULT_TEXT_SIZE, 'text-4xl font-semibold');
+      break;
+    default:
+      baseClass = classParser(DEFAULT_TEXT_SIZE, '');
+      break;
+  }
+
   const classNames = classParser(
-    DEFAULT_TEXT_SIZE,
+    baseClass,
     `${isSr ? 'sr-only' : ''} ${classes}`
   );
 

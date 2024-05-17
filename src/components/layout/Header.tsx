@@ -1,8 +1,10 @@
+// libs
+import { Link } from 'react-router-dom';
+
 // components
 import FlexWrapper from '@/components/elements/FlexWrapper';
 import Container from './Container';
 import Button from '@/components/elements/Button';
-import Typography, { Type } from '@/components/elements/Typography';
 import Nav from '@/components/elements/Nav';
 
 // assets
@@ -30,7 +32,10 @@ export default function Header() {
           alignItems="center"
           classes="h-full"
         >
-          <img src={logo} alt="logo" />
+          <Link to="/" className="text-main-50 hover:text-main-75 mr-14">
+            <img src={logo} alt="logo" />
+          </Link>
+
           <FlexWrapper classes="!w-auto" alignItems="center">
             <Nav />
             <Button

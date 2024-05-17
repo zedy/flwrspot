@@ -40,7 +40,10 @@ export default function Button({
 
   switch (version) {
     case 'outline':
-      baseClass = classParser(DEFAULT_CLASS, 'text-peach-darker');
+      baseClass = classParser(
+        DEFAULT_CLASS,
+        'text-peach-darker hover:text-main-100'
+      );
       break;
     default:
       baseClass = classParser(
