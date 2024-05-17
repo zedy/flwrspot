@@ -4,11 +4,18 @@ import { createBrowserRouter } from 'react-router-dom';
 
 // components
 import Layout from '@/components/layout/Layout';
-import UnderConstruction from '@/pages/UnderConstruction';
+import FourOhFour from '@/pages/FourOhFour';
+import Loadable from '@/components/Loadable';
 
 // renders
-const HomePage = lazy(() => import('../pages/HomePage'));
+const HomePage = Loadable(lazy(() => import('../pages/HomePage')));
+const FavoritesPage = Loadable(lazy(() => import('../pages/Favorites')));
+const SighthingsPage = Loadable(lazy(() => import('../pages/Sighthings')));
+const FlowersPage = Loadable(lazy(() => import('../pages/Flowers')));
 
+/**
+ *
+ */
 const BrowserRouter = createBrowserRouter([
   {
     path: '/',
@@ -19,8 +26,20 @@ const BrowserRouter = createBrowserRouter([
         element: <HomePage />,
       },
       {
+        path: '/flowers',
+        element: <FlowersPage />,
+      },
+      {
+        path: '/latest-sighthings',
+        element: <SighthingsPage />,
+      },
+      {
+        path: '/favorites',
+        element: <FavoritesPage />,
+      },
+      {
         path: '*',
-        element: <UnderConstruction />,
+        element: <FourOhFour />,
       },
     ],
   },

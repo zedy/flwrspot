@@ -41,5 +41,6 @@ module.exports = {
     'react/jsx-props-no-spreading': 0,
     'react/require-default-props': 0,
     'import/extensions': 0,
+    '@typescript-eslint/no-explicit-any': 0,
   },
 };

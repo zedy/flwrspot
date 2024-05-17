@@ -4,18 +4,20 @@ import Typography, { Type } from './Typography';
 
 type Props = {
   image: string;
+  headline: string;
+  subtext: string;
 };
 
 // Component
-export default function Hero({ image }: Props) {
+export default function Hero({ image, headline, subtext }: Props) {
   return (
     <section className="w-full h-full flex justify-center items-center flex-col relative mb-[70px]">
       <FlexWrapper flexDirection="col" classes="absolute" alignItems="center">
         <Typography component={Type.H1} classes="text-main-0">
-          Discover flowers around you
+          {headline}
         </Typography>
         <Typography component={Type.H4} classes="text-main-0">
-          Explore between more than 8.427 sightings
+          {subtext}
         </Typography>
       </FlexWrapper>
       <img src={image} alt="hero-flower" />

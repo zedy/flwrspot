@@ -9,7 +9,11 @@ import hero from '@/assets/pl-hero-min.png';
 export default function HomePage() {
   return (
     <Container>
-      <Hero image={hero} />
+      <Hero
+        image={hero}
+        headline="Discover flowers around you"
+        subtext="Explore between more than 8.427 sightings"
+      />
     </Container>
   );
 }
