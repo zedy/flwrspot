@@ -9,10 +9,11 @@ type ButtonProperties = {
   className?: string;
   type?: 'button' | 'submit';
   disabled?: boolean;
+  version?: 'default' | 'outline';
 };
 
 const DEFAULT_CLASS =
-  'h-10 px-5 text-sm font-medium text-main-0 flex font-montseratt bg-gradient-to-r from-peach-normal to-peach-light justify-center border-0 items-center rounded-full border-0 transition-all duration-300 ease-in-out focus:outline-none focus:ring-0 disabled:cursor-not-allowed';
+  'text-sm font-medium text-main-0 flex font-montserrat justify-center border-0 items-center rounded-full border-0 transition-all duration-300 ease-in-out focus:outline-none focus:ring-0 disabled:cursor-not-allowed';
 
 /**
  * Basic function button component.
@@ -32,15 +33,30 @@ export default function Button({
   onMouseDown,
   type = 'button',
   disabled,
+  version = 'default',
   ...props
 }: ButtonProperties) {
+  let baseClass;
+
+  switch (version) {
+    case 'outline':
+      baseClass = classParser(DEFAULT_CLASS, 'text-peach-darker');
+      break;
+    default:
+      baseClass = classParser(
+        DEFAULT_CLASS,
+        'h-10 px-5 bg-gradient-to-r from-peach-normal to-peach-light'
+      );
+      break;
+  }
+
   return (
     <button
       disabled={disabled}
       onClick={onClick}
       onMouseDown={onMouseDown}
       type={type === 'submit' ? 'submit' : 'button'}
-      className={classParser(DEFAULT_CLASS, className)}
+      className={classParser(baseClass, className)}
       {...props}
     >
       {icon}

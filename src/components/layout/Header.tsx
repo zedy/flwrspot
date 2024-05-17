@@ -14,12 +14,16 @@ import logo from '@/assets/logo.svg';
  * @returns JSX
  */
 export default function Header() {
-  const handleOnClick = () => {
+  const handleOnClickRegister = () => {
     console.log('new account triggered');
   };
 
+  const handleOnClickLogin = () => {
+    console.log('login triggered');
+  };
+
   return (
-    <header className="w-full flex justify-center h-20 bg-main-0v font-montseratt">
+    <header className="w-full flex justify-center h-20 bg-main-0v font-montserrat">
       <Container>
         <FlexWrapper
           justifyContent="between"
@@ -29,13 +33,14 @@ export default function Header() {
           <img src={logo} alt="logo" />
           <FlexWrapper classes="!w-auto" alignItems="center">
             <Nav />
-            <Typography
-              classes="text-peach-darker cursor-pointer mr-[30px]"
-              component={Type.SPAN}
+            <Button
+              version="outline"
+              onClick={handleOnClickLogin}
+              className="mr-[30px]"
             >
               Login
-            </Typography>
-            <Button onClick={handleOnClick} className="min-w-[140px]">
+            </Button>
+            <Button onClick={handleOnClickRegister} className="min-w-[140px]">
               New Account
             </Button>
           </FlexWrapper>

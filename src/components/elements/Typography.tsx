@@ -17,7 +17,7 @@ export enum Type {
 }
 
 // defaults
-const DEFAULT_TEXT_SIZE = 'text-sm font-medium font-montseratt';
+const DEFAULT_TEXT_SIZE = 'text-sm font-medium font-montserrat';
 
 /**
  * General typography component.

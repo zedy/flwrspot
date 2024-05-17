@@ -31,8 +31,8 @@ export default {
         lg: '1220px',
       },
       fontFamily: {
-        ubuntu: ['"Ubuntu"', ...defaultTheme.fontFamily.sans],
-        montseratt: ['"Montseratt"', ...defaultTheme.fontFamily.sans],
+        ubuntu: ['Ubuntu', ...defaultTheme.fontFamily.sans],
+        montserrat: ['Montserrat', ...defaultTheme.fontFamily.sans],
       },
     },
   },
