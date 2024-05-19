@@ -16,6 +16,13 @@ type Props = {
   data: FlowerProps;
 };
 
+/**
+ * Simple presentational components for displaying individual listing items
+ * from the `api/v1/flowers` endpoint.
+ *
+ * @param param0 FlowerProps
+ * @returns
+ */
 function FlowerListingItem({ data }: Props) {
   const { id, latin_name, name, favorite, profile_picture, sightings } = data;
 

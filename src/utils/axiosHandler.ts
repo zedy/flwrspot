@@ -1,4 +1,6 @@
+// libs
 import axios, { type AxiosInstance } from 'axios';
+import toast from 'react-hot-toast';
 
 const axiosInstance: AxiosInstance = axios.create({
   headers: {
@@ -26,6 +28,7 @@ export default async function axiosHandler(configObject: ConfigProperties) {
     return response.data;
   } catch (error) {
     console.log(error);
+    toast.error('An unexpected error occured.');
   }
 
   return () => controller.abort();

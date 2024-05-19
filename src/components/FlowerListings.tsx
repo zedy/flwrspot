@@ -1,5 +1,5 @@
 // libs
-import React, { useCallback, useContext } from 'react';
+import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 
 // components
@@ -14,32 +14,23 @@ function FlowerListings() {
   const { data } = useQuery({
     queryFn: () =>
       axiosHandler({
-        url: 'https://flowrspot-api.herokuapp.com/api/v1/flowers',
+        url: `${import.meta.env.VITE_FLOWERS_API_URL}/flowers`,
         method: 'GET',
       }),
     queryKey: ['flowerListings'],
     enabled: true,
     retry: false,
     select: (response) => response.flowers as FlowerProps[],
-    placeholderData: 'PLACEHOLDER-1',
+    placeholderData: '... todo',
   });
-
-  console.log(data);
-
-  // const handleDispatch = useCallback((name: string) => {
-  //   dispatch({
-  //     type: "LOCATION_SELECTION",
-  //     payload: {
-  //       name,
-  //     },
-  //   });
-  // }, []);
 
   return (
     <GridWrapper>
       {data &&
         data.map((flower) => {
-          return <FlowerListingItem key={flower.id} data={flower} />;
+          return (
+            <FlowerListingItem key={flower.id} data={flower as FlowerProps} />
+          );
         })}
     </GridWrapper>
   );
