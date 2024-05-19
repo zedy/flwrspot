@@ -1,37 +1,65 @@
 // libs
-import React from 'react';
-import { useQuery } from '@tanstack/react-query';
+import React, { useEffect } from 'react';
+import { useInfiniteQuery } from '@tanstack/react-query';
+import { useInView } from 'react-intersection-observer';
 
 // components
-import axiosHandler from '@/utils/axiosHandler';
 import FlowerListingItem from './FlowerListingItem';
 import GridWrapper from './elements/GridWrapper';
+
+// api
+import { getAllFlowers } from '@/api/flowers';
 
 // types
 import { FlowerProps } from '@/types/flowers';
 
 function FlowerListings() {
-  const { data } = useQuery({
-    queryFn: () =>
-      axiosHandler({
-        url: `${import.meta.env.VITE_FLOWERS_API_URL}/flowers`,
-        method: 'GET',
-      }),
-    queryKey: ['flowerListings'],
-    enabled: true,
-    retry: false,
-    select: (response) => response.flowers as FlowerProps[],
-    placeholderData: '... todo',
-  });
+  const { ref, inView } = useInView();
+
+  const { data, fetchNextPage, isFetching, isLoading } = useInfiniteQuery(
+    ['flowerListings'],
+    async (page) => getAllFlowers(page),
+    {
+      getNextPageParam: (lastPage) => {
+        console.log('lastpages', lastPage);
+
+        return lastPage.meta.pagination.next_page;
+      },
+    }
+  );
+
+  useEffect(() => {
+    if (inView) {
+      fetchNextPage();
+    }
+  }, [inView, fetchNextPage]);
+
+  // there was no need to implemnet any suspense / loading components
+  // as even on Fast 3G network throttling the load times were perfectly acceptable
+  if (isFetching) {
+    console.log('isFetching');
+  }
+
+  if (isLoading) {
+    console.log('isLoading');
+  }
 
   return (
     <GridWrapper>
       {data &&
-        data.map((flower) => {
-          return (
-            <FlowerListingItem key={flower.id} data={flower as FlowerProps} />
-          );
-        })}
+        data.pages.map((page, i) => (
+          <React.Fragment key={i}>
+            {page.flowers.map((flower) => {
+              return (
+                <FlowerListingItem
+                  key={flower.id}
+                  data={flower as FlowerProps}
+                />
+              );
+            })}
+          </React.Fragment>
+        ))}
+      <span ref={ref} />
     </GridWrapper>
   );
 }
