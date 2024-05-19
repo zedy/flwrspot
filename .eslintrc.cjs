@@ -42,5 +42,6 @@ module.exports = {
     'react/require-default-props': 0,
     'import/extensions': 0,
     '@typescript-eslint/no-explicit-any': 0,
+    '@typescript-eslint/naming-convention': 0,
   },
 };

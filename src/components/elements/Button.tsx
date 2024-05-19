@@ -9,7 +9,7 @@ type ButtonProperties = {
   className?: string;
   type?: 'button' | 'submit';
   disabled?: boolean;
-  version?: 'default' | 'outline';
+  version?: 'default' | 'outline' | 'icon-only';
 };
 
 const DEFAULT_CLASS =
@@ -45,10 +45,16 @@ export default function Button({
         'text-peach-darker hover:text-main-100'
       );
       break;
+    case 'icon-only':
+      baseClass = classParser(
+        DEFAULT_CLASS,
+        'rounded-full bg-main-0 hover:bg-peach-darker p-2'
+      );
+      break;
     default:
       baseClass = classParser(
         DEFAULT_CLASS,
-        'h-10 px-5 bg-gradient-to-r from-peach-normal to-peach-light'
+        'h-10 px-5 bg-gradient-to-r from-peach-light to-peach-normal hover:to-peach-darker'
       );
       break;
   }

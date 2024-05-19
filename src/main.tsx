@@ -2,9 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import './index.css';
+import ReactQueryProvider from '@/context/ReactQuery';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <App />
+    <ReactQueryProvider>
+      <App />
+    </ReactQueryProvider>
   </React.StrictMode>
 );

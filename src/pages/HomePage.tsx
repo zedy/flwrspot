@@ -1,6 +1,7 @@
 // components
 import Hero from '@/components/elements/Hero';
 import Container from '@/components/layout/Container';
+import FlowerListings from '@/components/FlowerListings';
 
 // assets
 import hero from '@/assets/pl-hero-min.png';
@@ -14,6 +15,7 @@ export default function HomePage() {
         headline="Discover flowers around you"
         subtext="Explore between more than 8.427 sightings"
       />
+      <FlowerListings />
     </Container>
   );
 }

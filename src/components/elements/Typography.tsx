@@ -49,6 +49,9 @@ export default function Typography({
     case 'h1':
       baseClass = classParser(DEFAULT_TEXT_SIZE, 'text-4xl font-semibold');
       break;
+    case 'h4':
+      baseClass = classParser(DEFAULT_TEXT_SIZE, 'text-xl font-regular');
+      break;
     default:
       baseClass = classParser(DEFAULT_TEXT_SIZE, '');
       break;
