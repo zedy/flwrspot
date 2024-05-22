@@ -17,7 +17,7 @@ export enum Type {
 }
 
 // defaults
-const DEFAULT_TEXT_SIZE = 'text-sm font-medium font-montserrat';
+const DEFAULT_TEXT_SIZE = 'font-medium font-montserrat';
 
 /**
  * General typography component.
@@ -49,11 +49,14 @@ export default function Typography({
     case 'h1':
       baseClass = classParser(DEFAULT_TEXT_SIZE, 'text-4xl font-semibold');
       break;
+    case 'h3':
+      baseClass = classParser(DEFAULT_TEXT_SIZE, 'text-2xl');
+      break;
     case 'h4':
       baseClass = classParser(DEFAULT_TEXT_SIZE, 'text-xl font-regular');
       break;
     default:
-      baseClass = classParser(DEFAULT_TEXT_SIZE, '');
+      baseClass = classParser(DEFAULT_TEXT_SIZE, 'text-sm');
       break;
   }
 

@@ -1,6 +1,6 @@
 // components
-import FlexWrapper from './FlexWrapper';
-import Typography, { Type } from './Typography';
+import FlexWrapper from '@/components/elements/FlexWrapper';
+import Typography, { Type } from '@/components/elements/Typography';
 
 type Props = {
   image: string;
@@ -8,7 +8,12 @@ type Props = {
   subtext: string;
 };
 
-// Component
+/**
+ * Simple presentational component for displaying the Hero banner and it's contents
+ *
+ * @params Props
+ * @returns
+ */
 export default function Hero({ image, headline, subtext }: Props) {
   return (
     <section className="w-full h-full flex justify-center items-center flex-col relative mb-[70px]">
@@ -16,7 +21,7 @@ export default function Hero({ image, headline, subtext }: Props) {
         <Typography component={Type.H1} classes="text-main-0">
           {headline}
         </Typography>
-        <Typography component={Type.H4} classes="text-main-0">
+        <Typography component={Type.H4} classes="text-main-25">
           {subtext}
         </Typography>
       </FlexWrapper>

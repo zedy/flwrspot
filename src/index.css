@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.calendar-custom-class {
+  position: absolute;
+  z-index: 25;
+  top: 52px;
+  width: 100%;
+}
+
+.calendar-custom-class.hidden {
+  display: none;
+}
