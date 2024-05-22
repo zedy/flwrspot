@@ -8,10 +8,10 @@ import NavElements from '@/routes/NavElements';
 /**
  * Presentational component for the nav menu
  *
- * @TODO integrate active link!
  * @returns JSX.Element
  */
 export default function Nav() {
+  // TODO integrate active link!
   return (
     <FlexWrapper>
       {NavElements.map((item) => {

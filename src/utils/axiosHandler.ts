@@ -1,35 +1,36 @@
 // libs
-import axios, { type AxiosInstance } from 'axios';
-import toast from 'react-hot-toast';
+import axios from 'axios';
 
-const axiosInstance: AxiosInstance = axios.create({
-  headers: {
-    'Content-Type': 'application/json',
-    Accept: 'application/json',
-  },
-});
+import { genericToastError } from './helpers';
 
-type ConfigProperties = {
-  method: 'GET' | 'POST' | 'PUT' | 'DELETE';
-  url: string;
-  requestConfig?: object;
+export type Data = Record<string, string | number>;
+
+export type ResponseObject = {
+  data: any;
 };
 
-export default async function axiosHandler(configObject: ConfigProperties) {
-  const { method, url, requestConfig = {} } = configObject;
-  const controller = new AbortController();
-
+const apiHandler = async (data: Data, url: string, method?: string) => {
   try {
-    const response = await axiosInstance[method.toLowerCase()](url, {
-      ...requestConfig,
-      signal: controller.signal,
+    const response: ResponseObject = await axios({
+      url,
+      baseURL: import.meta.env.VITE_FLOWERS_API_URL as string,
+      data,
+      method: method || 'POST',
+      // withCredentials: true,
+      headers: {
+        // Authorization: `Bearer ${jwtToken}`,
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
     });
 
     return response.data;
   } catch (error) {
     console.log(error);
-    toast.error('An unexpected error occured.');
+    genericToastError();
   }
 
-  return () => controller.abort();
-}
+  return {};
+};
+
+export default apiHandler;

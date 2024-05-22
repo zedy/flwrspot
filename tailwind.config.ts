@@ -11,6 +11,8 @@ export default {
         primaryFaded: '#ECE1F1',
         warning: '#F4BD50',
         red: '#F45050',
+        field: '#F5F6F7',
+        fieldBorder: '#DFE5EA',
         peach: {
           light: '#ECBCB3',
           normal: '#EAA79E',

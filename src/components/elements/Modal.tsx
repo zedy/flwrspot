@@ -7,11 +7,12 @@ import { createPortal } from 'react-dom';
 import FlexWrapper from '@/components/elements/FlexWrapper';
 import Typography, { Type } from '@/components/elements/Typography';
 import { ModalContext } from '@/context/ModalContext';
+import Loader from '@/components/Loader';
 
 type ModalProperties = {
   children: React.ReactNode;
   title?: string;
-  isOpen: boolean;
+  isOpen?: boolean;
 };
 
 /**
@@ -22,8 +23,9 @@ type ModalProperties = {
  * @param ModalProperties
  * @returns JSX
  */
-function Modal({ children, title, isOpen }: ModalProperties) {
-  const { setIsOpen } = useContext(ModalContext);
+function Modal({ children, title }: ModalProperties) {
+  // TODO disable scroll on body when open
+  const { setIsOpen, showLoader, isOpen } = useContext(ModalContext);
   if (!isOpen) return <div />;
 
   const handleCloseClick = (event: React.BaseSyntheticEvent) => {
@@ -53,6 +55,7 @@ function Modal({ children, title, isOpen }: ModalProperties) {
         className="relative min-h-56 min-w-[300px] max-w-[440px] z-50"
         data-testid="modal"
       >
+        {showLoader && <Loader />}
         <FlexWrapper
           flexDirection="col"
           classes="modal h-full w-full rounded-sm bg-main-0"

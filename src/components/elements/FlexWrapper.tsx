@@ -41,6 +41,7 @@ export default function FlexWrapper({
   justifyContent = 'start',
   alignItems = 'start',
 }: FlexWrapperProperties) {
+  // TODO rename classes to className
   const direction = flexDirection === 'row' ? 'flex-row' : 'flex-col';
   const justify = justifyContentClasses[justifyContent] || 'justify-start';
   const align = alignItemsClasses[alignItems] || 'items-start';

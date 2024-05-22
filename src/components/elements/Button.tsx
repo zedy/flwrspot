@@ -36,6 +36,7 @@ export default function Button({
   version = 'default',
   ...props
 }: ButtonProperties) {
+  // TODO implement a better hover transition
   let baseClass;
 
   switch (version) {
