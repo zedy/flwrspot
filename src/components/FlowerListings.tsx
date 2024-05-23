@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 // libs
 import React, { useEffect } from 'react';
 import { useInfiniteQuery } from '@tanstack/react-query';

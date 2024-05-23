@@ -2,6 +2,7 @@
 import React from 'react';
 
 // components
+import { useStore } from '@/store/store';
 import FlexWrapper from '@/components/elements/FlexWrapper';
 import Button from '@/components/elements/Button';
 
@@ -25,17 +26,20 @@ type Props = {
  */
 function FlowerListingItem({ data }: Props) {
   const { id, latin_name, name, favorite, profile_picture, sightings } = data;
-  // TODO hook favorite into auth workflow
+  const { currentUser } = useStore();
+
   return (
     <FlexWrapper
       flexDirection="col"
       classes="h-[350px] relative rounded-md overflow-hidden"
     >
-      <Button
-        version="icon-only"
-        icon={<img src={star} alt="favorite" />}
-        className="z-10 absolute top-5 right-5"
-      />
+      {currentUser && (
+        <Button
+          version="icon-only"
+          icon={<img src={star} alt="favorite" />}
+          className="z-10 absolute top-5 right-5"
+        />
+      )}
       <FlexWrapper
         alignItems="center"
         flexDirection="col"

@@ -1,17 +1,20 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 // libs
-import { memo, useEffect, useMemo } from 'react';
+import { memo, useContext, useEffect, useMemo } from 'react';
 
 // components
 import { useStore } from '@/store/store';
 import useQueryMutation from '@/hooks/useQueryMutation';
 import { fetchUserApi } from '@/api/auth';
 import { messageToastError } from '@/utils/helpers';
-import Typography, { Type } from './elements/Typography';
-import FlexWrapper from './elements/FlexWrapper';
+import Typography, { Type } from '@/components/elements/Typography';
+import FlexWrapper from '@/components/elements/FlexWrapper';
+import Modal from '@/components/elements/Modal';
+import { ModalContext } from '@/context/ModalContext';
 
 // assets
 import profilePhoto from '@/assets/menu_profile_holder.png';
+import Button from './elements/Button';
 
 /**
  * This component handles the fetching of the users profile data
@@ -23,6 +26,7 @@ import profilePhoto from '@/assets/menu_profile_holder.png';
  */
 function UserAuth() {
   const { currentUser, token, loginUser } = useStore();
+  const { isOpen, setIsOpen } = useContext(ModalContext);
   const { mutate } = useQueryMutation(fetchUserApi, 'profile', {
     onSuccess: (data) => {
       loginUser(data.user);
@@ -42,6 +46,17 @@ function UserAuth() {
     return `${currentUser?.first_name} ${currentUser?.last_name}`;
   }, [currentUser]);
 
+  if (!currentUser) {
+    return null;
+  }
+
+  const handleShowProfileModal = () => {
+    setIsOpen({
+      id: 'profile',
+      state: true,
+    });
+  };
+
   return (
     <FlexWrapper alignItems="center" justifyContent="end" classes="!w-auto">
       <Typography
@@ -50,7 +65,15 @@ function UserAuth() {
       >
         {getProfileName}
       </Typography>
-      <img src={profilePhoto} alt="profile" />
+      <Button
+        version="icon-only"
+        onClick={handleShowProfileModal}
+        className="w-10 h-10 !p-0"
+        icon={<img src={profilePhoto} alt="profile" />}
+      />
+      <Modal isOpen={isOpen} id="profile" title="Welcome Back">
+        TEST
+      </Modal>
     </FlexWrapper>
   );
 }

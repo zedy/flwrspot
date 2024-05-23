@@ -16,6 +16,12 @@ export const initialState: State = {
   token: '',
 };
 
+/**
+ * The app uses a simple state management tool, no need to complicate things.
+ *
+ * @see https://docs.pmnd.rs/zustand/getting-started/introduction
+ * @returns hook
+ */
 const storeObject = (set) => ({
   ...initialState,
   setToken: (token: string) =>

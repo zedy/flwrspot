@@ -19,7 +19,7 @@ import logo from '@/assets/logo.svg';
  * @returns JSX
  */
 export default function Header() {
-  const { currentUser } = useStore();
+  const { token } = useStore();
 
   return (
     <header className="w-full flex justify-center h-20 bg-main-0v font-montserrat">
@@ -35,7 +35,7 @@ export default function Header() {
 
           <FlexWrapper classes="!w-auto" alignItems="center">
             <Nav />
-            {!currentUser ? (
+            {!token ? (
               <>
                 <LoginAuth />
                 <SignupAuth />

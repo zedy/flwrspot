@@ -79,6 +79,7 @@ type Props = {
 };
 
 export default function SignupForm({ mutationCallback }: Props) {
+  // TODO improve validation, it's triggered by "onchange" if errors is true
   const [dob, setDob] = useState<Date | ''>('');
   const [showCalendar, setShowCalendar] = useState<boolean>(false);
   const { setShowLoader } = useContext(ModalContext);
