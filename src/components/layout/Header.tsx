@@ -7,6 +7,8 @@ import Container from '@/components/layout/Container';
 import Nav from '@/components/elements/Nav';
 import LoginAuth from '@/components/LoginAuth';
 import SignupAuth from '@/components/SignupAuth';
+import UserAuth from '@/components/UserAuth';
+import { useStore } from '@/store/store';
 
 // assets
 import logo from '@/assets/logo.svg';
@@ -17,6 +19,8 @@ import logo from '@/assets/logo.svg';
  * @returns JSX
  */
 export default function Header() {
+  const { currentUser } = useStore();
+
   return (
     <header className="w-full flex justify-center h-20 bg-main-0v font-montserrat">
       <Container>
@@ -31,8 +35,14 @@ export default function Header() {
 
           <FlexWrapper classes="!w-auto" alignItems="center">
             <Nav />
-            <LoginAuth />
-            <SignupAuth />
+            {!currentUser ? (
+              <>
+                <LoginAuth />
+                <SignupAuth />
+              </>
+            ) : (
+              <UserAuth />
+            )}
           </FlexWrapper>
         </FlexWrapper>
       </Container>

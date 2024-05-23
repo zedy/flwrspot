@@ -22,6 +22,6 @@ export async function loginUserApi(data: LoginData) {
   return apiHandler(data, '/users/login');
 }
 
-export async function fetchUserApi(data: LoginData) {
-  return apiHandler(data, '/users/me');
+export async function fetchUserApi(token: string) {
+  return apiHandler({}, '/users/me', 'GET', token);
 }

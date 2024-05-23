@@ -2,6 +2,7 @@
 import { lazy, useContext, memo } from 'react';
 
 // components
+import { useStore } from '@/store/store';
 import Button from '@/components/elements/Button';
 import Modal from '@/components/elements/Modal';
 import { ModalContext } from '@/context/ModalContext';
@@ -24,9 +25,11 @@ const LoginFormComponent = Loadable(
 function LoginAuth() {
   // TODO remove console logs once prod ready
   const { setShowLoader, isOpen, setIsOpen } = useContext(ModalContext);
+  const { setToken } = useStore();
   const { mutate, data } = useQueryMutation(loginUserApi, 'login', {
     onSuccess: (result) => {
-      console.log('User created successfully:', result);
+      setToken(result.auth_token);
+      setShowLoader(false);
     },
     onError: (error) => {
       messageToastError(error.response.data.error);

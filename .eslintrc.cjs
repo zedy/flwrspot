@@ -43,5 +43,6 @@ module.exports = {
     'import/extensions': 0,
     '@typescript-eslint/no-explicit-any': 0,
     '@typescript-eslint/naming-convention': 0,
+    'react-hooks/exhaustive-deps': 'warn',
   },
 };

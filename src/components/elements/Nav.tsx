@@ -13,13 +13,13 @@ import NavElements from '@/routes/NavElements';
 export default function Nav() {
   // TODO integrate active link!
   return (
-    <FlexWrapper>
+    <FlexWrapper alignItems="center">
       {NavElements.map((item) => {
         return (
           <Link
             key={item.id}
             to={item.path}
-            className="text-main-50 hover:text-main-75 mr-14"
+            className="text-main-50 hover:text-main-75 mr-14 font-medium"
           >
             {item.label}
           </Link>
