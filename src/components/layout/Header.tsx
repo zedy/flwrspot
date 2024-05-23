@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom';
 import FlexWrapper from '@/components/elements/FlexWrapper';
 import Container from '@/components/layout/Container';
 import Nav from '@/components/elements/Nav';
-import Auth from '@/components/Auth';
+import LoginAuth from '@/components/LoginAuth';
+import SignupAuth from '@/components/SignupAuth';
 
 // assets
 import logo from '@/assets/logo.svg';
@@ -30,7 +31,8 @@ export default function Header() {
 
           <FlexWrapper classes="!w-auto" alignItems="center">
             <Nav />
-            <Auth />
+            <LoginAuth />
+            <SignupAuth />
           </FlexWrapper>
         </FlexWrapper>
       </Container>

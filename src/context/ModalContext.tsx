@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
 
+type State = {
+  id: string;
+  state: boolean;
+};
+
 type ContextProperties = {
-  isOpen: boolean;
-  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  isOpen: State;
+  setIsOpen: React.Dispatch<React.SetStateAction<State>>;
   showLoader: boolean;
   setShowLoader: React.Dispatch<React.SetStateAction<boolean>>;
 };
@@ -10,7 +15,10 @@ type ContextProperties = {
 const initialContext = {} as ContextProperties;
 
 const INITIAL_STATE = {
-  isOpen: false,
+  isOpen: {
+    id: '',
+    state: false,
+  },
   showLoader: false,
 };
 
@@ -21,7 +29,7 @@ export function ModalContextProvider({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [isOpen, setIsOpen] = useState<boolean>(INITIAL_STATE.isOpen);
+  const [isOpen, setIsOpen] = useState<State>(INITIAL_STATE.isOpen);
   const [showLoader, setShowLoader] = useState<boolean>(
     INITIAL_STATE.showLoader
   );
@@ -33,7 +41,7 @@ export function ModalContextProvider({
       showLoader,
       setShowLoader,
     }),
-    [isOpen, setIsOpen, showLoader]
+    [isOpen, showLoader]
   );
 
   return (

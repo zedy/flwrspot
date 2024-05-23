@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 // libs
-import { useState } from 'react';
-import toast from 'react-hot-toast';
+import { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
@@ -15,7 +14,7 @@ import Button from '@/components/elements/Button';
 import FlexWrapper from '@/components/elements/FlexWrapper';
 import Divider from '@/components/elements/Divider';
 import DatePicker from '../elements/DatePicker';
-// import { SocialLoginProps } from '@/types/auth';
+import { ModalContext } from '@/context/ModalContext';
 
 // types
 import { Value } from '@/types/date';
@@ -75,13 +74,14 @@ type FormData = {
   dob: string;
 };
 
-type SocialLoginProps = {
+type Props = {
   mutationCallback: any;
 };
 
-export default function SignupForm({ mutationCallback }: SocialLoginProps) {
+export default function SignupForm({ mutationCallback }: Props) {
   const [dob, setDob] = useState<Date | ''>('');
   const [showCalendar, setShowCalendar] = useState<boolean>(false);
+  const { setShowLoader } = useContext(ModalContext);
 
   const {
     register,
@@ -94,17 +94,14 @@ export default function SignupForm({ mutationCallback }: SocialLoginProps) {
   });
 
   const onSubmit = async (formData: FormData) => {
-    try {
-      mutationCallback({
-        first_name: formData.firstName,
-        last_name: formData.lastName,
-        email: formData.signupEmail,
-        password: formData.signupPassword,
-        date_of_birth: dob,
-      });
-    } catch (err: unknown) {
-      toast.error('User creation encountered an error');
-    }
+    setShowLoader(true);
+    mutationCallback({
+      first_name: formData.firstName,
+      last_name: formData.lastName,
+      email: formData.signupEmail,
+      password: formData.signupPassword,
+      date_of_birth: dob,
+    });
   };
 
   const handleDatePick = (value: Value) => {

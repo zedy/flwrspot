@@ -1,22 +1,20 @@
 // libs
-import { lazy, useContext, useState } from 'react';
+import { lazy, useContext, useState, memo } from 'react';
 
 // components
 import Button from '@/components/elements/Button';
 import Modal from '@/components/elements/Modal';
 import { ModalContext } from '@/context/ModalContext';
 import useQueryMutation from '@/hooks/useQueryMutation';
-import registerUserApi from '@/api/auth';
+import { registerUserApi } from '@/api/auth';
 import Loadable from '@/components/Loadable';
+import { messageToastError } from '@/utils/helpers';
 
 const SignupFormComponent = Loadable(
   lazy(() => import('@/components/forms/Signup.form'))
 );
 const RegistrationCompleteComponent = Loadable(
   lazy(() => import('@/components/modals/RegistrationSuccess'))
-);
-const LoginFormComponent = Loadable(
-  lazy(() => import('@/components/forms/Signup.form'))
 );
 
 /**
@@ -26,39 +24,35 @@ const LoginFormComponent = Loadable(
  *
  * @returns JSX
  */
-export default function Auth() {
+function SignupAuth() {
   const [renderComponent, setRenderComponent] = useState<string>('');
-  const { isLoading, mutate, isSuccess } = useQueryMutation(registerUserApi);
-  const { setIsOpen, isOpen, setShowLoader } = useContext(ModalContext);
-  const [title, setTitle] = useState<string>('');
+  const { setShowLoader, isOpen, setIsOpen } = useContext(ModalContext);
+  const { mutate, data } = useQueryMutation(registerUserApi, 'signup', {
+    onSuccess: (result) => {
+      console.log('User created successfully:', result);
+      setRenderComponent('registerComplete');
+    },
+    onError: (error) => {
+      messageToastError(error.response.data.error);
+      setShowLoader(false);
+    },
+  });
+
+  console.log('signup auth');
+  console.log(data);
 
   const handleOnClickRegister = () => {
-    setTitle('Create an Account');
     setRenderComponent('signup');
-    setIsOpen(true);
+    setIsOpen({
+      id: 'signup',
+      state: true,
+    });
   };
-
-  const handleOnClickLogin = () => {
-    setTitle('Welcome Back');
-    setRenderComponent('login');
-    setIsOpen(true);
-  };
-
-  if (isLoading) {
-    setShowLoader(true);
-  }
-
-  if (isSuccess) {
-    setTitle('Registration Complete');
-    setRenderComponent('registerComplete');
-  }
 
   const renderModalContent = () => {
     switch (renderComponent) {
       case 'signup':
         return <SignupFormComponent mutationCallback={mutate} />;
-      case 'login':
-        return <LoginFormComponent />;
       case 'registerComplete':
         return <RegistrationCompleteComponent />;
       default:
@@ -68,19 +62,14 @@ export default function Auth() {
 
   return (
     <>
-      <Button
-        version="outline"
-        onClick={handleOnClickLogin}
-        className="mr-[30px]"
-      >
-        Login
-      </Button>
       <Button onClick={handleOnClickRegister} className="min-w-[140px]">
         New Account
       </Button>
-      <Modal isOpen={isOpen} title={title}>
+      <Modal isOpen={isOpen} id="signup" title="Create an Account">
         {renderModalContent()}
       </Modal>
     </>
   );
 }
+
+export default memo(SignupAuth);

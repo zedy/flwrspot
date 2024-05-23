@@ -1,7 +1,7 @@
 // utils
 import apiHandler from '@/utils/axiosHandler';
 
-type Data = {
+type RegisterData = {
   first_name: string;
   last_name: string;
   email: string;
@@ -9,6 +9,19 @@ type Data = {
   date_of_birth: string;
 };
 
-export default async function registerUserApi(data: Data) {
+type LoginData = {
+  email: string;
+  password: string;
+};
+
+export async function registerUserApi(data: RegisterData) {
   return apiHandler(data, '/users/register');
+}
+
+export async function loginUserApi(data: LoginData) {
+  return apiHandler(data, '/users/login');
+}
+
+export async function fetchUserApi(data: LoginData) {
+  return apiHandler(data, '/users/me');
 }

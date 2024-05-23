@@ -25,7 +25,7 @@ type Props = {
  */
 function FlowerListingItem({ data }: Props) {
   const { id, latin_name, name, favorite, profile_picture, sightings } = data;
-
+  // TODO hook favorite into auth workflow
   return (
     <FlexWrapper
       flexDirection="col"

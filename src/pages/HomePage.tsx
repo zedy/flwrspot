@@ -8,6 +8,7 @@ import hero from '@/assets/pl-hero-min.png';
 
 // Component
 export default function HomePage() {
+  // TODO check with api if there's a endpoint or the counter
   return (
     <Container>
       <Hero
