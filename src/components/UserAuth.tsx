@@ -58,10 +58,14 @@ function UserAuth() {
   };
 
   return (
-    <FlexWrapper alignItems="center" justifyContent="end" classes="!w-auto">
+    <FlexWrapper
+      alignItems="center"
+      justifyContent="end"
+      className="!w-auto flex-row-reverse lg:flex-row mb-10 md:mb-0"
+    >
       <Typography
         component={Type.P}
-        classes="mr-5 text-main-50 text-base whitespace-pre"
+        className="ml-5 md:mr-5 text-main-50 !text-base whitespace-pre block md:hidden lg:block"
       >
         {getProfileName}
       </Typography>

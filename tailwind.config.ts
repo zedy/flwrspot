@@ -30,7 +30,7 @@ export default {
       },
       screens: {
         xs: '420px',
-        lg: '1220px',
+        xl: '1220px',
       },
       fontFamily: {
         ubuntu: ['Ubuntu', ...defaultTheme.fontFamily.sans],

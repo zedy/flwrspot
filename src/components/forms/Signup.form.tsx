@@ -127,7 +127,7 @@ export default function SignupForm({ mutationCallback }: Props) {
   return (
     <FlexWrapper flexDirection="col">
       <form onSubmit={handleSubmit(onSubmit)} className="w-full">
-        <FlexWrapper flexDirection="col" classes="sm:flex-row">
+        <FlexWrapper flexDirection="col" className="sm:flex-row">
           <FormInputElement
             label="First name"
             type={InputType.Text}
@@ -163,7 +163,7 @@ export default function SignupForm({ mutationCallback }: Props) {
           error={errors}
           {...register('signupEmail', { required: true })}
         />
-        <FlexWrapper flexDirection="col" classes="sm:flex-row">
+        <FlexWrapper flexDirection="col" className="sm:flex-row">
           <FormInputElement
             label="Password"
             type={InputType.Password}

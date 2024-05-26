@@ -1,5 +1,5 @@
 /**
- * Class parser is a utility function that is used to parse classes
+ * Class parser is a utility function that is used to parse className
  * primarily so that elements don't have those empty spaces or undefined
  * within their class attribute.
  *

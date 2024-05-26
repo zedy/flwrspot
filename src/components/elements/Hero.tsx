@@ -17,11 +17,11 @@ type Props = {
 export default function Hero({ image, headline, subtext }: Props) {
   return (
     <section className="w-full h-full flex justify-center items-center flex-col relative mb-[70px]">
-      <FlexWrapper flexDirection="col" classes="absolute" alignItems="center">
-        <Typography component={Type.H1} classes="text-main-0">
+      <FlexWrapper flexDirection="col" className="absolute" alignItems="center">
+        <Typography component={Type.H1} className="text-main-0">
           {headline}
         </Typography>
-        <Typography component={Type.H4} classes="text-main-25">
+        <Typography component={Type.H4} className="text-main-25">
           {subtext}
         </Typography>
       </FlexWrapper>

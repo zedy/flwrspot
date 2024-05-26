@@ -45,7 +45,7 @@ function Modal({ children, title, id, isOpen }: ModalProperties) {
     <FlexWrapper
       justifyContent="center"
       alignItems="center"
-      classes="modal-outline absolute top-0 left-0 right-0 bottom-0 z-30"
+      className="modal-outline absolute top-0 left-0 right-0 bottom-0 z-30"
     >
       <div
         role="button"
@@ -63,22 +63,22 @@ function Modal({ children, title, id, isOpen }: ModalProperties) {
         {showLoader && <Loader />}
         <FlexWrapper
           flexDirection="col"
-          classes="modal h-full w-full rounded-sm bg-main-0"
+          className="modal h-full w-full rounded-sm bg-main-0"
         >
           <FlexWrapper
             alignItems="center"
-            classes="modal-header w-full py-[25px]"
+            className="modal-header w-full py-[25px]"
           >
             {title && (
               <Typography
                 component={Type.H4}
-                classes="w-full text-center font-medium font-ubuntu"
+                className="w-full text-center font-medium font-ubuntu"
               >
                 {title}
               </Typography>
             )}
           </FlexWrapper>
-          <FlexWrapper classes="body p-[30px] pt-0">{children}</FlexWrapper>
+          <FlexWrapper className="body p-[30px] pt-0">{children}</FlexWrapper>
         </FlexWrapper>
       </div>
     </FlexWrapper>

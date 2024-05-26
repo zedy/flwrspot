@@ -15,7 +15,7 @@ export default function Loader() {
       justifyContent="center"
       alignItems="center"
       flexDirection="col"
-      classes="absolute h-full bg-slate-100 opacity-50 z-50 top-0 left-0"
+      className="absolute h-full bg-slate-100 opacity-50 z-50 top-0 left-0"
     >
       <LoadingOutlined style={{ fontSize: '50px', color: '#000' }} />
     </FlexWrapper>

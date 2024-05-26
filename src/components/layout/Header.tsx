@@ -4,11 +4,7 @@ import { Link } from 'react-router-dom';
 // components
 import FlexWrapper from '@/components/elements/FlexWrapper';
 import Container from '@/components/layout/Container';
-import Nav from '@/components/elements/Nav';
-import LoginAuth from '@/components/LoginAuth';
-import SignupAuth from '@/components/SignupAuth';
-import UserAuth from '@/components/UserAuth';
-import { useStore } from '@/store/store';
+import Menu from '@/components/menu/Menu';
 
 // assets
 import logo from '@/assets/logo.svg';
@@ -19,31 +15,18 @@ import logo from '@/assets/logo.svg';
  * @returns JSX
  */
 export default function Header() {
-  const { token } = useStore();
-
   return (
-    <header className="w-full flex justify-center h-20 bg-main-0v font-montserrat">
+    <header className="w-full flex justify-center h-20 bg-main-0 font-montserrat">
       <Container>
         <FlexWrapper
           justifyContent="between"
           alignItems="center"
-          classes="h-full"
+          className="h-full"
         >
           <Link to="/" className="text-main-50 hover:text-main-75 mr-14">
             <img src={logo} alt="logo" />
           </Link>
-
-          <FlexWrapper classes="!w-auto" alignItems="center">
-            <Nav />
-            {!token ? (
-              <>
-                <LoginAuth />
-                <SignupAuth />
-              </>
-            ) : (
-              <UserAuth />
-            )}
-          </FlexWrapper>
+          <Menu />
         </FlexWrapper>
       </Container>
     </header>

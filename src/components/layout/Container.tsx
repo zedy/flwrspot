@@ -11,6 +11,6 @@ export default function Container({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="w-full px-5 lg:max-w-[1220px] md:px-5">{children}</div>
+    <div className="w-full px-5 xl:max-w-[1220px] md:px-5">{children}</div>
   );
 }

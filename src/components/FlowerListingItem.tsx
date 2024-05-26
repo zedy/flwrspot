@@ -31,32 +31,32 @@ function FlowerListingItem({ data }: Props) {
   return (
     <FlexWrapper
       flexDirection="col"
-      classes="h-[350px] relative rounded-md overflow-hidden"
+      className="h-[350px] relative rounded-md overflow-hidden"
     >
       {currentUser && (
         <Button
           version="icon-only"
           icon={<img src={star} alt="favorite" />}
-          className="z-10 absolute top-5 right-5"
+          className="z-10 absolute top-5 right-5 hover:bg-peach-darker"
         />
       )}
       <FlexWrapper
         alignItems="center"
         flexDirection="col"
-        classes="absolute bottom-5 z-10"
+        className="absolute bottom-5 z-10"
       >
-        <Typography component={Type.H4} classes="font-ubuntu text-main-0">
+        <Typography component={Type.H4} className="font-ubuntu text-main-0">
           {name}
         </Typography>
         <Typography
           component={Type.SPAN}
-          classes="italic	font-ubuntu text-xs text-main-25"
+          className="italic	font-ubuntu text-xs text-main-25"
         >
           {latin_name}
         </Typography>
         <Typography
           component={Type.SPAN}
-          classes="mt-5 bg-main-100 bg-opacity-50 rounded-full text-xs font-ubuntu text-main-0 py-[8px] px-[12px]"
+          className="mt-5 bg-main-100 bg-opacity-50 rounded-full text-xs font-ubuntu text-main-0 py-[8px] px-[12px]"
         >
           {sightings} sightings
         </Typography>

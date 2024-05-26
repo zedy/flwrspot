@@ -34,7 +34,7 @@ export default function DatePicker({
   };
 
   return (
-    <FlexWrapper flexDirection="col" classes="relative">
+    <FlexWrapper flexDirection="col" className="relative">
       {input}
       {visible && (
         <Calendar

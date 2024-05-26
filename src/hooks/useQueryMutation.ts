@@ -13,7 +13,6 @@ type MutationFunction<TData, TVariables> = (
   variables: TVariables
 ) => Promise<TData>;
 
-// TODO integrate store
 const useCustomMutation = <TData, TVariables>(
   apiEndpoint: MutationFunction<TData, TVariables>,
   queryKey: string,

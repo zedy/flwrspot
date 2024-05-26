@@ -1,7 +1,6 @@
 // components
 import Header from '@/components/layout/Header';
 import Main from '@/components/layout/Main';
-import Footer from '@/components/layout/Footer';
 import FlexWrapper from '../elements/FlexWrapper';
 
 export default function Layout() {
@@ -10,11 +9,10 @@ export default function Layout() {
       flexDirection="col"
       justifyContent="between"
       alignItems="center"
-      classes="layout w-full h-full"
+      className="layout w-full min-h-screen"
     >
       <Header />
       <Main />
-      <Footer />
     </FlexWrapper>
   );
 }

@@ -47,10 +47,7 @@ export default function Button({
       );
       break;
     case 'icon-only':
-      baseClass = classParser(
-        DEFAULT_CLASS,
-        'rounded-full bg-main-0 hover:bg-peach-darker p-2'
-      );
+      baseClass = classParser(DEFAULT_CLASS, 'rounded-full bg-main-0 p-2');
       break;
     default:
       baseClass = classParser(

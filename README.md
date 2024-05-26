@@ -7,6 +7,7 @@ Given the app requirements i have took the liberty to change some thing to impro
 1. Signup workflow now automatically logs in the user after they have completed the signup process
 - explenation: this is something i would expect of any modern web app and wouldn't want to spend extra steps to login 
 (with the exception of email validation which currently Flowrspot api doesn't support).
+2. Added infinite scroll to the Flower listing component as it helps with the overall UX (and was faily simple to implement)
 
 ### Tech stack:
 - React

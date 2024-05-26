@@ -61,17 +61,6 @@ const storeObject = (set) => ({
       'user logged out'
     );
   },
-  updateProfile: (profile) => {
-    // TODO do i need this? PUT
-    set(
-      (store: State) => ({
-        ...store,
-        currentUser: { ...store.currentUser, profile },
-      }),
-      false,
-      'user profile updated'
-    );
-  },
 });
 
 const withDevtools =

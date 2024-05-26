@@ -8,7 +8,6 @@ import { ModalContextProvider } from '@/context/ModalContext';
 
 // Component
 export default function App() {
-  // TODO fix body overflow
   return (
     <div className="App w-screen min-h-screen overflow-x-hidden bg-stone-100">
       <ModalContextProvider>

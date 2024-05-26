@@ -24,11 +24,11 @@ const DEFAULT_TEXT_SIZE = 'font-medium font-montserrat';
  * Use this component to create a typography element such
  * as h1, h2, h3, h4, h5, h6, p, span.
  *
- * @example <Typography component={Type.H1} classes="text-red-500">Hello World</Typography>
+ * @example <Typography component={Type.H1} className="text-red-500">Hello World</Typography>
  * @param children - The content of the typography
  * @param component - The type of the typography
  * @param isSr - If the typography is for screen readers
- * @param classes - The classes to be added to the typography
+ * @param className - The className to be added to the typography
  *
  * @returns The typography component
  */
@@ -36,12 +36,12 @@ export default function Typography({
   children,
   component,
   isSr = false,
-  classes = '',
+  className = '',
 }: Readonly<{
   children: React.ReactNode;
   component: Type;
   isSr?: boolean;
-  classes?: string;
+  className?: string;
 }>) {
   let baseClass;
 
@@ -62,7 +62,7 @@ export default function Typography({
 
   const classNames = classParser(
     baseClass,
-    `${isSr ? 'sr-only' : ''} ${classes}`
+    `${isSr ? 'sr-only' : ''} ${className}`
   );
 
   return React.createElement(component, { className: classNames }, children);
