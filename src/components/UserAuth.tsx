@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 // libs
-import { memo, useContext, useEffect, useMemo } from 'react';
+import { memo, useContext, useEffect } from 'react';
 
 // components
 import { useStore } from '@/store/store';
@@ -11,10 +11,11 @@ import Typography, { Type } from '@/components/elements/Typography';
 import FlexWrapper from '@/components/elements/FlexWrapper';
 import Modal from '@/components/elements/Modal';
 import { ModalContext } from '@/context/ModalContext';
+import Button from '@/components/elements/Button';
+import Profile from '@/components/modals/Profile';
 
 // assets
 import profilePhoto from '@/assets/menu_profile_holder.png';
-import Button from './elements/Button';
 
 /**
  * This component handles the fetching of the users profile data
@@ -25,7 +26,7 @@ import Button from './elements/Button';
  * @returns JSX
  */
 function UserAuth() {
-  const { currentUser, token, loginUser } = useStore();
+  const { currentUser, token, loginUser, getFullName } = useStore();
   const { isOpen, setIsOpen } = useContext(ModalContext);
   const { mutate } = useQueryMutation(fetchUserApi, 'profile', {
     onSuccess: (data) => {
@@ -42,10 +43,6 @@ function UserAuth() {
     }
   }, []);
 
-  const getProfileName = useMemo(() => {
-    return `${currentUser?.first_name} ${currentUser?.last_name}`;
-  }, [currentUser]);
-
   if (!currentUser) {
     return null;
   }
@@ -61,13 +58,13 @@ function UserAuth() {
     <FlexWrapper
       alignItems="center"
       justifyContent="end"
-      className="!w-auto flex-row-reverse lg:flex-row mb-10 md:mb-0"
+      className="!w-auto flex-row-reverse xl:flex-row mb-10 md:mb-0"
     >
       <Typography
         component={Type.P}
-        className="ml-5 md:mr-5 text-main-50 !text-base whitespace-pre block md:hidden lg:block"
+        className="ml-5 md:mr-5 text-main-50 !text-base whitespace-pre block md:hidden xl:block"
       >
-        {getProfileName}
+        {getFullName()}
       </Typography>
       <Button
         version="icon-only"
@@ -75,8 +72,8 @@ function UserAuth() {
         className="w-10 h-10 !p-0"
         icon={<img src={profilePhoto} alt="profile" />}
       />
-      <Modal isOpen={isOpen} id="profile" title="Welcome Back">
-        TEST
+      <Modal isOpen={isOpen} id="profile">
+        <Profile />
       </Modal>
     </FlexWrapper>
   );

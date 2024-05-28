@@ -18,7 +18,7 @@ export default function DesktopMenu() {
   const { token } = useStore();
 
   return (
-    <FlexWrapper className="!w-auto hidden md:flex" alignItems="center">
+    <FlexWrapper className="desktop !w-auto hidden md:flex" alignItems="center">
       <Nav />
       {!token ? (
         <>

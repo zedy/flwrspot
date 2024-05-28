@@ -3,16 +3,13 @@ import Hero from '@/components/elements/Hero';
 import Container from '@/components/layout/Container';
 import FlowerListings from '@/components/FlowerListings';
 
-// assets
-import hero from '@/assets/pl-hero-min.png';
-
 // Component
 export default function HomePage() {
-  // TODO check with api if there's a endpoint or the counter
+  // TODO check with api if there's a endpoint for the counter number of sightings
   return (
-    <Container>
+    <Container padding={false}>
       <Hero
-        image={hero}
+        image="bg-hero"
         headline="Discover flowers around you"
         subtext="Explore between more than 8.427 sightings"
       />
