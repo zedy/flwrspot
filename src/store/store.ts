@@ -22,8 +22,17 @@ export const initialState: State = {
  * @see https://docs.pmnd.rs/zustand/getting-started/introduction
  * @returns hook
  */
-const storeObject = (set) => ({
+const storeObject = (set, get) => ({
   ...initialState,
+  getFullName: () => {
+    const { currentUser } = get();
+
+    if (currentUser) {
+      return `${currentUser.first_name} ${currentUser.last_name}`;
+    }
+
+    return '';
+  },
   setToken: (token: string) =>
     set(
       (store: State) => ({
@@ -51,16 +60,16 @@ const storeObject = (set) => ({
       false,
       'user logged in'
     ),
-  logoutUser: () => {
+  logoutUser: () =>
     set(
       (store: State) => ({
         ...store,
         currentUser: null,
+        token: '',
       }),
       false,
       'user logged out'
-    );
-  },
+    ),
 });
 
 const withDevtools =

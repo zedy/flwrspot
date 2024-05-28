@@ -44,7 +44,7 @@ export default function Typography({
   className?: string;
 }>) {
   let baseClass;
-
+  // TODO refactor this it's ****
   switch (component) {
     case 'h1':
       baseClass = classParser(DEFAULT_TEXT_SIZE, 'text-4xl font-semibold');
@@ -53,10 +53,10 @@ export default function Typography({
       baseClass = classParser(DEFAULT_TEXT_SIZE, 'text-2xl');
       break;
     case 'h4':
-      baseClass = classParser(DEFAULT_TEXT_SIZE, 'text-xl font-regular');
+      baseClass = classParser(DEFAULT_TEXT_SIZE, 'text-xl');
       break;
     default:
-      baseClass = classParser(DEFAULT_TEXT_SIZE, 'text-sm');
+      baseClass = ''; // classParser(DEFAULT_TEXT_SIZE, 'text-sm');
       break;
   }
 

@@ -31,7 +31,7 @@ function FlowerListingItem({ data }: Props) {
   return (
     <FlexWrapper
       flexDirection="col"
-      className="h-[350px] relative rounded-md overflow-hidden"
+      className="h-[230px] md:h-[290px] xl:h-[350px] relative rounded-md overflow-hidden"
     >
       {currentUser && (
         <Button

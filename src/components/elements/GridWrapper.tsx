@@ -15,7 +15,7 @@ export default function GridWrapper({
   children,
   className = '',
 }: GridWrapperProperties) {
-  const gridClass = `w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-5`;
+  const gridClass = `w-full grid grid-cols-1 grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-5 px-5`;
 
   return <div className={`${gridClass} ${className}`}>{children}</div>;
 }

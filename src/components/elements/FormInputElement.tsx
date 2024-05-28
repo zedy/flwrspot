@@ -77,7 +77,7 @@ function FormInputElement(
         />
         <label
           htmlFor={name}
-          className="absolute z-10 left-4 top-2 text-slate-400 text-[10px] font-normal transition-all
+          className="absolute z-10 left-4 top-2 text-lightGray text-[10px] font-normal transition-all
           peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 
           peer-placeholder-shown:top-3 peer-focus:top-2 peer-focus:text-slate-800 peer-focus:text-[10px]"
         >

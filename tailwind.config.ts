@@ -5,7 +5,11 @@ export default {
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      backgroundImage: {
+        hero: "url('/pl-hero-min.png')",
+      },
       colors: {
+        lightGray: '#949EA0',
         primary: '#BC8CD2',
         primaryLight: '#D3B9DF',
         primaryFaded: '#ECE1F1',
