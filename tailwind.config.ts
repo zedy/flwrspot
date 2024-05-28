@@ -5,6 +5,14 @@ export default {
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      fontSize: {
+        xss: [
+          '10px',
+          {
+            lineHeight: '12px',
+          },
+        ],
+      },
       backgroundImage: {
         hero: "url('/pl-hero-min.png')",
       },

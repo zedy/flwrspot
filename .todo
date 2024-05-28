@@ -1,0 +1,8 @@
+- go over the breakpoints [not setup correctly]
+- refactor button and typography components [maybe tailwind ui?]
+- pixel perfect / responsive check
+- go over the requirement workflow 
+- add missing component/fn docs
+- write some rtl tests
+- modal responsive
+- go over additional TODOS

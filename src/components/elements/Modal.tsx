@@ -8,12 +8,17 @@ import FlexWrapper from '@/components/elements/FlexWrapper';
 import Typography, { Type } from '@/components/elements/Typography';
 import { ModalContext } from '@/context/ModalContext';
 import Loader from '@/components/Loader';
+import Button from '@/components/elements/Button';
+
+// assets
+import closeIcon from '@/assets/pl-icon-close.svg';
 
 type ModalProperties = {
   children: React.ReactNode;
   title?: string;
   id: string;
   isOpen: any;
+  type?: 'default' | 'wide';
 };
 
 /**
@@ -24,7 +29,13 @@ type ModalProperties = {
  * @param ModalProperties
  * @returns JSX
  */
-function Modal({ children, title, id, isOpen }: ModalProperties) {
+function Modal({
+  children,
+  title,
+  id,
+  isOpen,
+  type = 'default',
+}: ModalProperties) {
   // TODO disable scroll on body when open
   const { setIsOpen, showLoader } = useContext(ModalContext);
 
@@ -59,26 +70,46 @@ function Modal({ children, title, id, isOpen }: ModalProperties) {
         }}
         className="absolute top-0 left-0 right-0 bottom-0 bg-gray-900 bg-opacity-40 z-40"
       />
-      <div className="relative min-h-56 min-w-[440px] z-50" data-testid="modal">
+      <div
+        className={`relative min-h-56 z-50 ${
+          type === 'default' ? 'min-w-[440px]' : 'min-w-[590px]'
+        }`}
+        data-testid="modal"
+      >
         {showLoader && <Loader />}
         <FlexWrapper
           flexDirection="col"
           className="modal h-full w-full rounded-sm bg-main-0"
         >
-          <FlexWrapper
-            alignItems="center"
-            className="modal-header w-full py-[25px]"
-          >
-            {title && (
+          {type === 'wide' && (
+            <Button
+              onClick={handleCloseClick}
+              version="icon-only"
+              className="w-5 h-5 absolute top-4 right-4 !p-0"
+            >
+              <img src={closeIcon} alt="close" />
+            </Button>
+          )}
+          {title && (
+            <FlexWrapper
+              alignItems="center"
+              className="modal-header w-full py-[25px]"
+            >
               <Typography
                 component={Type.H4}
                 className="w-full text-center font-medium font-ubuntu"
               >
                 {title}
               </Typography>
-            )}
+            </FlexWrapper>
+          )}
+          <FlexWrapper
+            className={`body ${
+              type === 'default' ? 'pt-0 p-[30px]' : 'px-[110px] py-[60px]'
+            }`}
+          >
+            {children}
           </FlexWrapper>
-          <FlexWrapper className="body p-[30px] pt-0">{children}</FlexWrapper>
         </FlexWrapper>
       </div>
     </FlexWrapper>

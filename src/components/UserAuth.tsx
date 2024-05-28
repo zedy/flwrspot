@@ -72,7 +72,7 @@ function UserAuth() {
         className="w-10 h-10 !p-0"
         icon={<img src={profilePhoto} alt="profile" />}
       />
-      <Modal isOpen={isOpen} id="profile">
+      <Modal isOpen={isOpen} id="profile" type="wide">
         <Profile />
       </Modal>
     </FlexWrapper>

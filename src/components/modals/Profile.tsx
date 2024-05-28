@@ -21,10 +21,10 @@ type ProfileFieldsetProps = {
  */
 function ProfileFieldset({ label, value }: ProfileFieldsetProps) {
   return (
-    <FlexWrapper flexDirection="col" className="mb-7">
+    <FlexWrapper flexDirection="col" className="mb-5">
       <Typography
         component={Type.SPAN}
-        className="text-lightGray text-xs font-ubuntu mb-2"
+        className="text-lightGray text-xss font-ubuntu mb-2"
       >
         {label}
       </Typography>
@@ -88,7 +88,10 @@ export default function Profile() {
         label="Email Address"
       />
 
-      <Button onClick={logoutUser} className="min-w-[140px] mt-14 !rounded">
+      <Button
+        onClick={logoutUser}
+        className="min-w-[140px] mt-12 px-[10px] py-6 !rounded"
+      >
         Logout
       </Button>
     </FlexWrapper>
