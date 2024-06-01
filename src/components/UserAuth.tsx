@@ -72,7 +72,7 @@ function UserAuth() {
       <Button
         version="icon-only"
         onClick={handleShowProfileModal}
-        className="w-10 h-10 !p-0"
+        className="w-10 h-10 !p-0 rounded-full"
         icon={<img src={profilePhoto} alt="profile" />}
       />
       <Modal isOpen={isOpen} id="profile" type="wide">

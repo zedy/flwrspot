@@ -53,8 +53,9 @@ function SignupAuth() {
   return (
     <>
       <Button
+        version="cta"
         onClick={handleOnClickRegister}
-        className="min-w-[140px] mt-12 xl:mt-0"
+        className="mt-12 xl:mt-0"
       >
         New Account
       </Button>

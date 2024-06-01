@@ -178,7 +178,7 @@ export default function SignupForm({ mutationCallback }: Props) {
             {...register('passwordVerify', { required: true })}
           />
         </FlexWrapper>
-        <Button type="submit" className="w-full !rounded mt-5">
+        <Button version="modal-cta" type="submit" className="w-full mt-5">
           Create Account
         </Button>
       </form>

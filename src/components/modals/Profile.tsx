@@ -88,10 +88,7 @@ export default function Profile() {
         label="Email Address"
       />
 
-      <Button
-        onClick={logoutUser}
-        className="min-w-[140px] mt-12 px-[10px] py-6 !rounded"
-      >
+      <Button version="modal-cta" onClick={logoutUser} className="mt-12">
         Logout
       </Button>
     </FlexWrapper>

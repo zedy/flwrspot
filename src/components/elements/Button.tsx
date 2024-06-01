@@ -9,11 +9,11 @@ type ButtonProperties = {
   className?: string;
   type?: 'button' | 'submit';
   disabled?: boolean;
-  version?: 'default' | 'outline' | 'icon-only';
+  version?: 'modal-cta' | 'outline' | 'icon-cta' | 'icon-only' | 'cta';
 };
 
 const DEFAULT_CLASS =
-  'text-sm font-medium text-main-0 flex font-montserrat justify-center border-0 items-center rounded-full border-0 transition-all duration-300 ease-in-out focus:outline-none focus:ring-0 disabled:cursor-not-allowed';
+  'text-sm flex justify-center border-0 items-center border-0 transition-all duration-300 ease-in-out focus:outline-none focus:ring-0 disabled:cursor-not-allowed';
 
 /**
  * Basic function button component.
@@ -33,28 +33,41 @@ export default function Button({
   onMouseDown,
   type = 'button',
   disabled,
-  version = 'default',
+  version,
   ...props
 }: ButtonProperties) {
-  // TODO refactor this component, it's ****
-  // TODO implement a better hover transition
   let baseClass;
 
   switch (version) {
     case 'outline':
       baseClass = classParser(
         DEFAULT_CLASS,
-        'text-peach-darker hover:text-main-100'
+        'font-medium font-montserrat text-peach-darker hover:text-main-100'
+      );
+      break;
+    case 'icon-cta':
+      baseClass = classParser(
+        DEFAULT_CLASS,
+        'rounded-full bg-main-0 hover:bg-peach-darker p-2'
       );
       break;
     case 'icon-only':
-      baseClass = classParser(DEFAULT_CLASS, 'rounded-full bg-main-0 p-2');
+      baseClass = classParser(DEFAULT_CLASS, 'bg-transparent');
       break;
-    default:
+    case 'cta':
       baseClass = classParser(
         DEFAULT_CLASS,
-        'h-10 px-5 bg-gradient-to-r from-peach-light to-peach-normal hover:to-peach-darker'
+        'rounded-full whitespace-nowrap font-medium font-montserrat text-main-0 py-[10px] px-6 bg-gradient-to-r to-peach-light from-peach-normal hover:to-peach-normal'
       );
+      break;
+    case 'modal-cta':
+      baseClass = classParser(
+        DEFAULT_CLASS,
+        'rounded font-medium font-ubuntu text-main-0 py-4 px-12 bg-gradient-to-r to-peach-light from-peach-normal hover:to-peach-normal'
+      );
+      break;
+    default:
+      baseClass = classParser(DEFAULT_CLASS, '');
       break;
   }
 

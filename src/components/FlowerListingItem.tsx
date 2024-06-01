@@ -25,7 +25,7 @@ type Props = {
  * @returns
  */
 function FlowerListingItem({ data }: Props) {
-  const { id, latin_name, name, favorite, profile_picture, sightings } = data;
+  const { latin_name, name, profile_picture, sightings } = data;
   const { currentUser } = useStore();
 
   return (
@@ -35,9 +35,9 @@ function FlowerListingItem({ data }: Props) {
     >
       {currentUser && (
         <Button
-          version="icon-only"
+          version="icon-cta"
           icon={<img src={star} alt="favorite" />}
-          className="z-10 absolute top-5 right-5 hover:bg-peach-darker"
+          className="z-10 absolute top-5 right-5"
         />
       )}
       <FlexWrapper

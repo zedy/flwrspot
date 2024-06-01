@@ -68,7 +68,7 @@ export default function LoginForm({ mutationCallback }: Props) {
           error={errors}
           {...register('password', { required: true })}
         />
-        <Button type="submit" className="w-full !rounded mt-5">
+        <Button version="modal-cta" type="submit" className="w-full mt-5">
           Login to your Account
         </Button>
       </form>

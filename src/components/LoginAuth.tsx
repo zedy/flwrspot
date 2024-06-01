@@ -26,7 +26,6 @@ const LoginFormComponent = Loadable(
  * @returns JSX
  */
 function LoginAuth() {
-  // TODO remove console logs once prod ready
   const { setShowLoader, isOpen, setIsOpen } = useContext(ModalContext);
   const { setToken } = useStore();
   const { setIsOpen: setIsDrawerOpen } = useContext(MenuContext);

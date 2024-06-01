@@ -14,26 +14,22 @@ const apiHandler = async (
   method?: string,
   token?: string
 ) => {
-  try {
-    const headers = {
-      'Content-Type': 'application/json',
-      Accept: 'application/json',
-    };
+  const headers = {
+    'Content-Type': 'application/json',
+    Accept: 'application/json',
+  };
 
-    if (token) set(headers, 'Authorization', `Bearer ${token}`);
+  if (token) set(headers, 'Authorization', `Bearer ${token}`);
 
-    const response: ResponseObject = await axios({
-      url,
-      baseURL: import.meta.env.VITE_FLOWERS_API_URL as string,
-      data,
-      method: method || 'POST',
-      headers,
-    });
+  const response: ResponseObject = await axios({
+    url,
+    baseURL: import.meta.env.VITE_FLOWERS_API_URL as string,
+    data,
+    method: method || 'POST',
+    headers,
+  });
 
-    return response.data;
-  } catch (error) {
-    throw new Error('Oops!');
-  }
+  return response.data;
 };
 
 export default apiHandler;

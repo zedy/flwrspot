@@ -28,7 +28,7 @@ export default function Nav() {
             key={item.id}
             to={item.path}
             onClick={handleNavigate}
-            className={`text-main-50 hover:text-peach-darker mb-10 xl:mb-0 mr-14 font-medium ${
+            className={`text-main-50 hover:text-peach-darker mb-10 xl:mb-0 mr-14 font-medium text-sm ${
               item.path === pathname ? 'text-peach-darker' : ''
             }`}
           >

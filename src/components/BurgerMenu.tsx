@@ -27,7 +27,7 @@ export default function BurgerMenu() {
           alt="burger-menu"
         />
       }
-      className="bg-transparent xl:hidden p-0 z-50"
+      className="xl:hidden z-50"
       onClick={() => setIsOpen(!isOpen)}
     />
   );
