@@ -71,8 +71,8 @@ function Modal({
         className="absolute top-0 left-0 right-0 bottom-0 bg-gray-900 bg-opacity-40 z-40"
       />
       <div
-        className={`relative min-h-56 z-50 ${
-          type === 'default' ? 'min-w-[440px]' : 'min-w-[590px]'
+        className={`relative w-full md:w-auto min-w-0 min-h-56 z-50 px-[10%] md:p-0 ${
+          type === 'default' ? 'md:min-w-[440px]' : 'md:min-w-[590px]'
         }`}
         data-testid="modal"
       >
@@ -117,7 +117,8 @@ function Modal({
 
   return createPortal(
     modalContent,
-    document.querySelector('#modal-root') as Element
+    document.querySelector('#modal-root') as Element,
+    title
   );
 }
 

@@ -10,6 +10,7 @@ import useQueryMutation from '@/hooks/useQueryMutation';
 import { loginUserApi } from '@/api/auth';
 import Loadable from '@/components/Loadable';
 import { messageToastError, messageToastSuccess } from '@/utils/helpers';
+import { MenuContext } from '@/context/MenuContext';
 
 const LoginFormComponent = Loadable(
   lazy(() => import('@/components/forms/Login.form'))
@@ -28,6 +29,7 @@ function LoginAuth() {
   // TODO remove console logs once prod ready
   const { setShowLoader, isOpen, setIsOpen } = useContext(ModalContext);
   const { setToken } = useStore();
+  const { setIsOpen: setIsDrawerOpen } = useContext(MenuContext);
   const { mutate } = useQueryMutation(loginUserApi, 'login', {
     onSuccess: (result) => {
       setToken(result.auth_token);
@@ -47,6 +49,7 @@ function LoginAuth() {
       id: 'login',
       state: true,
     });
+    setIsDrawerOpen(false);
   };
 
   return (

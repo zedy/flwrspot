@@ -21,14 +21,14 @@ export default function Nav() {
   };
 
   return (
-    <FlexWrapper flexDirection="col" className="md:flex-row md:items-center">
+    <FlexWrapper flexDirection="col" className="xl:flex-row xl:items-center">
       {NavElements.map((item) => {
         return (
           <Link
             key={item.id}
             to={item.path}
             onClick={handleNavigate}
-            className={`text-main-50 hover:text-peach-darker mb-10 md:mb-0 mr-14 font-medium ${
+            className={`text-main-50 hover:text-peach-darker mb-10 xl:mb-0 mr-14 font-medium ${
               item.path === pathname ? 'text-peach-darker' : ''
             }`}
           >

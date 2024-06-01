@@ -16,6 +16,7 @@ import Profile from '@/components/modals/Profile';
 
 // assets
 import profilePhoto from '@/assets/menu_profile_holder.png';
+import { MenuContext } from '@/context/MenuContext';
 
 /**
  * This component handles the fetching of the users profile data
@@ -28,6 +29,7 @@ import profilePhoto from '@/assets/menu_profile_holder.png';
 function UserAuth() {
   const { currentUser, token, loginUser, getFullName } = useStore();
   const { isOpen, setIsOpen } = useContext(ModalContext);
+  const { setIsOpen: setIsDrawerOpen } = useContext(MenuContext);
   const { mutate } = useQueryMutation(fetchUserApi, 'profile', {
     onSuccess: (data) => {
       loginUser(data.user);
@@ -52,17 +54,18 @@ function UserAuth() {
       id: 'profile',
       state: true,
     });
+    setIsDrawerOpen(false);
   };
 
   return (
     <FlexWrapper
       alignItems="center"
       justifyContent="end"
-      className="!w-auto flex-row-reverse xl:flex-row mb-10 md:mb-0"
+      className="!w-auto flex-row-reverse xl:flex-row mb-10 xl:mb-0"
     >
       <Typography
         component={Type.P}
-        className="ml-5 md:mr-5 text-main-50 !text-base whitespace-pre block md:hidden xl:block"
+        className="ml-5 md:mr-5 text-main-50 !text-base whitespace-pre"
       >
         {getFullName()}
       </Typography>

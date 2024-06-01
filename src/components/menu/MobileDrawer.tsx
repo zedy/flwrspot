@@ -24,7 +24,7 @@ export default function MobileDrawer() {
 
   return (
     <FlexWrapper
-      className={`mobile md:hidden transition-all duration-200 translate-x-[768px] absolute left-0 top-20 right-0 bottom-0 bg-main-0 z-50 p-8 md:p-0 ${
+      className={`mobile xl:hidden transition-all duration-200 translate-x-[1220px] absolute left-0 top-20 right-0 bottom-0 bg-main-0 z-50 p-8 xl:p-0 ${
         isOpen ? '!translate-x-0' : ''
       }`}
       flexDirection="col"

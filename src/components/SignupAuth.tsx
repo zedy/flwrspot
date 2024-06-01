@@ -10,6 +10,7 @@ import { registerUserApi } from '@/api/auth';
 import Loadable from '@/components/Loadable';
 import { messageToastError, messageToastSuccess } from '@/utils/helpers';
 import { useStore } from '@/store/store';
+import { MenuContext } from '@/context/MenuContext';
 
 const SignupFormComponent = Loadable(
   lazy(() => import('@/components/forms/Signup.form'))
@@ -27,6 +28,7 @@ const SignupFormComponent = Loadable(
 function SignupAuth() {
   const { setToken } = useStore();
   const { setShowLoader, isOpen, setIsOpen } = useContext(ModalContext);
+  const { setIsOpen: setIsDrawerOpen } = useContext(MenuContext);
   const { mutate } = useQueryMutation(registerUserApi, 'signup', {
     onSuccess: (result) => {
       setToken(result.auth_token);
@@ -45,11 +47,15 @@ function SignupAuth() {
       id: 'signup',
       state: true,
     });
+    setIsDrawerOpen(false);
   };
 
   return (
     <>
-      <Button onClick={handleOnClickRegister} className="min-w-[140px]">
+      <Button
+        onClick={handleOnClickRegister}
+        className="min-w-[140px] mt-12 xl:mt-0"
+      >
         New Account
       </Button>
       <Modal isOpen={isOpen} id="signup" title="Create an Account">

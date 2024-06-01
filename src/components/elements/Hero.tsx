@@ -22,13 +22,13 @@ export default function Hero({ image, headline, subtext }: Props) {
       <FlexWrapper flexDirection="col" className="absolute" alignItems="center">
         <Typography
           component={Type.H1}
-          className="text-main-0 font-light md:font-semibold text-center mb-[15px] xl:mb-[25px]"
+          className="text-main-0 !font-light xl:font-semibold text-center mb-[15px] xl:mb-[25px]"
         >
           {headline}
         </Typography>
         <Typography
           component={Type.H4}
-          className="text-main-25 text-center font-light md:font-regular text-base"
+          className="text-main-25 !font-light text-center md:font-regular text-base"
         >
           {subtext}
         </Typography>
