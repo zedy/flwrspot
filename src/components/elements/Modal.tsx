@@ -36,7 +36,6 @@ function Modal({
   isOpen,
   type = 'default',
 }: ModalProperties) {
-  // TODO disable scroll on body when open
   const { setIsOpen, showLoader } = useContext(ModalContext);
 
   // this has to be separate otherwise it throws the weirdest error

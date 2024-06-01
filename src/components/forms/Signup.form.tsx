@@ -19,11 +19,14 @@ import { ModalContext } from '@/context/ModalContext';
 // types
 import { Value } from '@/types/date';
 
+// utils
+import { formErrorMessages } from '@/utils/helpers';
+
+const { required, min3, min8, max16, max32, max64 } = formErrorMessages();
+
 const getCharacterValidationError = (str: string) => {
   return `Your password must have at least 1 ${str} character`;
 };
-
-const DEFAULT_ERR_MSG = 'is a required field';
 
 /**
  * We could separate the schemaValidation into a separate file
@@ -34,33 +37,38 @@ const schemaValidation = yup
   .object({
     firstName: yup
       .string()
-      .required(`First name ${DEFAULT_ERR_MSG}`)
-      .min(3)
-      .max(32),
+      .trim()
+      .required(required)
+      .min(3, min3)
+      .max(32, max32),
     lastName: yup
       .string()
-      .required(`Last name ${DEFAULT_ERR_MSG}`)
-      .min(3)
-      .max(32),
-    dob: yup.string().required(`Date ${DEFAULT_ERR_MSG}`),
+      .trim()
+      .required(required)
+      .min(3, min3)
+      .max(32, max32),
+    dob: yup.string().required(required),
     signupEmail: yup
       .string()
       .email()
-      .required(`Email ${DEFAULT_ERR_MSG}`)
-      .min(8)
-      .max(64),
+      .trim()
+      .required(required)
+      .min(8, min8)
+      .max(64, max64),
     signupPassword: yup
       .string()
-      .required(`Password ${DEFAULT_ERR_MSG}`)
-      .min(8)
-      .max(16)
+      .trim()
+      .required(required)
+      .min(8, min8)
+      .max(16, max16)
       .trim()
       .matches(/[0-9]/, getCharacterValidationError('digit'))
       .matches(/[a-z]/, getCharacterValidationError('lowercase'))
       .matches(/[A-Z]/, getCharacterValidationError('uppercase')),
     passwordVerify: yup
       .string()
-      .required(`Password verify ${DEFAULT_ERR_MSG}`)
+      .trim()
+      .required(required)
       .oneOf([yup.ref('signupPassword')], 'Passwords must match'),
   })
   .required();
@@ -79,7 +87,6 @@ type Props = {
 };
 
 export default function SignupForm({ mutationCallback }: Props) {
-  // TODO improve validation, it's triggered by "onchange" if errors is true
   const [dob, setDob] = useState<Date | ''>('');
   const [showCalendar, setShowCalendar] = useState<boolean>(false);
   const { setShowLoader } = useContext(ModalContext);

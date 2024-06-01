@@ -6,9 +6,6 @@ import {
   UseMutationResult,
 } from '@tanstack/react-query';
 
-// components
-// import { useStore } from '@/store/store';
-
 type MutationFunction<TData, TVariables> = (
   variables: TVariables
 ) => Promise<TData>;

@@ -1,6 +1,2 @@
-- refactor button and typography components [maybe tailwind ui?]
-- go over the requirement workflow 
 - add missing component/fn docs
 - write some rtl tests
-- go over additional TODOS
-- double modal content: context issue [menu, modal]

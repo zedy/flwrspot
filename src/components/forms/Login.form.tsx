@@ -13,7 +13,10 @@ import Button from '@/components/elements/Button';
 import FlexWrapper from '@/components/elements/FlexWrapper';
 import { ModalContext } from '@/context/ModalContext';
 
-const DEFAULT_ERR_MSG = 'is a required field';
+// utils
+import { formErrorMessages } from '@/utils/helpers';
+
+const { required } = formErrorMessages();
 
 /**
  * We could separate the schemaValidation into a separate file
@@ -22,8 +25,8 @@ const DEFAULT_ERR_MSG = 'is a required field';
  */
 const schemaValidation = yup
   .object({
-    email: yup.string().email().required(`Email ${DEFAULT_ERR_MSG}`),
-    password: yup.string().required(`Password ${DEFAULT_ERR_MSG}`),
+    email: yup.string().email().required(required),
+    password: yup.string().required(required),
   })
   .required();
 

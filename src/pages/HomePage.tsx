@@ -5,7 +5,6 @@ import FlowerListings from '@/components/FlowerListings';
 
 // Component
 export default function HomePage() {
-  // TODO check with api if there's a endpoint for the counter number of sightings
   return (
     <Container padding={false}>
       <Hero

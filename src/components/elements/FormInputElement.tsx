@@ -4,7 +4,7 @@ import { get } from 'lodash';
 import { forwardRef } from 'react';
 
 // components
-import { messageToastError } from '@/utils/helpers';
+import FormError from './FormError';
 
 export enum InputType {
   Text = 'text',
@@ -51,14 +51,10 @@ function FormInputElement(
     onChange(e);
   };
 
-  if (isError) {
-    messageToastError(get(error[name], 'message') as string);
-  }
-
   return (
     <div className="w-full">
       <div
-        className={`relative mb-[10px] z-1 h-[50px] px-[15px] pt-3 pb-0 bg-field font-ubuntu rounded-sm overflow-hidden border-[1px] ${
+        className={`relative mb-4 z-1 h-[50px] px-[15px] pt-3 pb-0 bg-field font-ubuntu rounded-sm border-[1px] ${
           isError ? 'border-red' : 'border-fieldBorder'
         }`}
       >
@@ -83,9 +79,9 @@ function FormInputElement(
         >
           {label}
         </label>
-        {/* {get(error, name) && type !== 'hidden' ? (
+        {get(error, name) && type !== 'hidden' ? (
           <FormError message={get(error[name], 'message') as string} />
-        ) : null} */}
+        ) : null}
       </div>
     </div>
   );

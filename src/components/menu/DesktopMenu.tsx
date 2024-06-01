@@ -4,6 +4,7 @@ import Nav from '@/components/elements/Nav';
 import LoginAuth from '@/components/LoginAuth';
 import SignupAuth from '@/components/SignupAuth';
 import UserAuth from '@/components/UserAuth';
+import useMediaQuery from '@/hooks/useMediaQuery';
 import { useStore } from '@/store/store';
 
 /**
@@ -16,11 +17,12 @@ import { useStore } from '@/store/store';
  */
 export default function DesktopMenu() {
   const { token } = useStore();
+  const isLg = useMediaQuery('lg');
 
   return (
     <FlexWrapper className="desktop !w-auto hidden xl:flex" alignItems="center">
       <Nav />
-      {!token ? (
+      {isLg && !token ? (
         <>
           <LoginAuth />
           <SignupAuth />

@@ -9,6 +9,7 @@ import SignupAuth from '@/components/SignupAuth';
 import UserAuth from '@/components/UserAuth';
 import { useStore } from '@/store/store';
 import { MenuContext } from '@/context/MenuContext';
+import useMediaQuery from '@/hooks/useMediaQuery';
 
 /**
  * Wrapper component for the mobile navigation.
@@ -21,6 +22,7 @@ import { MenuContext } from '@/context/MenuContext';
 export default function MobileDrawer() {
   const { token } = useStore();
   const { isOpen } = useContext(MenuContext);
+  const isLg = useMediaQuery('lg');
 
   return (
     <FlexWrapper
@@ -31,7 +33,7 @@ export default function MobileDrawer() {
     >
       {token && <UserAuth />}
       <Nav />
-      {!token && (
+      {!token && !isLg && (
         <>
           <LoginAuth />
           <SignupAuth />

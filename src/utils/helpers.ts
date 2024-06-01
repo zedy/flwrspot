@@ -22,3 +22,12 @@ export const messageToastSuccess = (message: string) => {
     id: message,
   });
 };
+
+export const formErrorMessages = () => ({
+  required: 'This is a required field',
+  min3: 'Must input at least 3 characters',
+  min8: 'Must input at least 8 characters',
+  max16: 'Max allowed characters is 16',
+  max32: 'Max allowed characters is 32',
+  max64: 'Max allowed characters is 64',
+});
