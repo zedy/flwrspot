@@ -24,7 +24,7 @@ export default function Header() {
   };
 
   return (
-    <header className="w-full flex justify-center h-20 bg-main-0 font-montserrat">
+    <header className="header w-full flex justify-center h-20 bg-main-0 font-montserrat">
       <Container>
         <FlexWrapper
           justifyContent="between"

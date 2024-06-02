@@ -11,6 +11,7 @@ import { loginUserApi } from '@/api/auth';
 import Loadable from '@/components/Loadable';
 import { messageToastError, messageToastSuccess } from '@/utils/helpers';
 import { MenuContext } from '@/context/MenuContext';
+import withTestId from '@/components/withTestId';
 
 const LoginFormComponent = Loadable(
   lazy(() => import('@/components/forms/Login.form'))
@@ -51,15 +52,17 @@ function LoginAuth() {
     setIsDrawerOpen(false);
   };
 
+  const ButtonWithTestId = withTestId(Button, 'modal-open-button');
+
   return (
     <>
-      <Button
+      <ButtonWithTestId
         version="outline"
         onClick={handleOnClickLogin}
-        className="mr-[30px]"
+        className="login-trigger mr-[30px]"
       >
         Login
-      </Button>
+      </ButtonWithTestId>
       <Modal isOpen={isOpen} id="login" title="Welcome Back">
         <LoginFormComponent mutationCallback={mutate} />
       </Modal>

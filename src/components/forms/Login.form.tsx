@@ -58,7 +58,7 @@ export default function LoginForm({ mutationCallback }: Props) {
 
   return (
     <FlexWrapper flexDirection="col">
-      <form onSubmit={handleSubmit(onSubmit)} className="w-full">
+      <form onSubmit={handleSubmit(onSubmit)} className="login-form w-full">
         <FormInputElement
           label="Email Address"
           type={InputType.Email}

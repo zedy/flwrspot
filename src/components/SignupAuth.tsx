@@ -55,7 +55,7 @@ function SignupAuth() {
       <Button
         version="cta"
         onClick={handleOnClickRegister}
-        className="mt-12 xl:mt-0"
+        className="signup-trigger mt-12 xl:mt-0"
       >
         New Account
       </Button>

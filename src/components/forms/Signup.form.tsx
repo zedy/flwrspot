@@ -133,7 +133,7 @@ export default function SignupForm({ mutationCallback }: Props) {
 
   return (
     <FlexWrapper flexDirection="col">
-      <form onSubmit={handleSubmit(onSubmit)} className="w-full">
+      <form onSubmit={handleSubmit(onSubmit)} className="signup-form w-full">
         <FlexWrapper flexDirection="col" className="sm:flex-row">
           <FormInputElement
             label="First name"

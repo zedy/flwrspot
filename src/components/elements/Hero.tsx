@@ -17,7 +17,8 @@ type Props = {
 export default function Hero({ image, headline, subtext }: Props) {
   return (
     <section
-      className={`w-full flex justify-center items-center flex-col relative mb-10 xl:mb-[70px] h-[500px] ${image}`}
+      data-testid="hero"
+      className={`hero w-full flex justify-center items-center flex-col relative mb-10 xl:mb-[70px] h-[500px] ${image}`}
     >
       <FlexWrapper flexDirection="col" className="absolute" alignItems="center">
         <Typography
