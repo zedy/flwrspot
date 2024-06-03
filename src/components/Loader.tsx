@@ -7,7 +7,7 @@ import FlexWrapper from '@/components/elements/FlexWrapper';
 /**
  * A simple presentational component that shows a loading/spinner
  *
- * @returns JSX
+ * @returns {JSX.Element} - The rendered component.
  */
 export default function Loader() {
   return (

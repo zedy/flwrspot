@@ -14,7 +14,9 @@ const SighthingsPage = Loadable(lazy(() => import('../pages/Sighthings')));
 const FlowersPage = Loadable(lazy(() => import('../pages/Flowers')));
 
 /**
+ * Router component that mapes our the routes of the app.
  *
+ * @returns {RemixRouter}
  */
 const BrowserRouter = createBrowserRouter([
   {

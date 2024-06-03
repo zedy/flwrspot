@@ -1,5 +1,5 @@
 // libs
-import { ElementType, Suspense } from 'react';
+import { ComponentType, Suspense } from 'react';
 
 // components
 import Loader from '@/components/Loader';
@@ -10,8 +10,8 @@ import Loader from '@/components/Loader';
  *
  * @returns JSX.Element
  */
-export default function Loadable(Component: ElementType) {
-  return function (props: any) {
+export default function Loadable<P>(Component: ComponentType<P>) {
+  return function LoadableComponent(props: P & JSX.IntrinsicAttributes) {
     return (
       <Suspense fallback={<Loader />}>
         <Component {...props} />

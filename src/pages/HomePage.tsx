@@ -3,7 +3,11 @@ import Hero from '@/components/elements/Hero';
 import Container from '@/components/layout/Container';
 import FlowerListings from '@/components/FlowerListings';
 
-// Component
+/**
+ * Simple presentational component.
+ *
+ * @returns {JSX.Element} - The rendered component.
+ */
 export default function HomePage() {
   return (
     <Container padding={false}>

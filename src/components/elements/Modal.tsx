@@ -26,8 +26,13 @@ type ModalProperties = {
  * It takes a child which is the modal content (the content displayed
  * within the modal itself). All other logic is in the ModalContext
  *
- * @param ModalProperties
- * @returns JSX
+ * @param {Object} props - The component props.
+ * @param {React.ReactNode} children - The children elements to be wrapped.
+ * @param {string} title - The title of the modal.
+ * @param {string} id - An id to differentiate open modals.
+ * @param {boolean} isOpen - The controller for the visibility.
+ * @param {string} type - Variation of the button component.
+ * @returns {JSX.Element} - The rendered component.
  */
 function Modal({
   children,

@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
  * Simple custom hook that checks the window size and returns a
  * bool against a query.
  *
- * @returns
+ * @returns {boolean}
  */
 const useMediaQuery = (breakpoint: string) => {
   const [windowSize, setWindowSize] = useState<number>(0);

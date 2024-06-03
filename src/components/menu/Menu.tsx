@@ -6,7 +6,7 @@ import BurgerMenu from '@/components/BurgerMenu';
 /**
  * Wrapper component for the mobile and desktop menu/drawers.
  *
- * @returns JSX
+ * @returns {JSX.Element} - The rendered component.
  */
 export default function Menu() {
   return (

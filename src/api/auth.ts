@@ -1,7 +1,7 @@
 // utils
 import apiHandler from '@/utils/axiosHandler';
 
-type RegisterData = {
+export type RegisterData = {
   first_name: string;
   last_name: string;
   email: string;
@@ -9,7 +9,7 @@ type RegisterData = {
   date_of_birth: string;
 };
 
-type LoginData = {
+export type LoginData = {
   email: string;
   password: string;
 };

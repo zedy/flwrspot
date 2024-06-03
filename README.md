@@ -21,7 +21,14 @@ Given the app requirements i have took the liberty to change some thing to impro
 - {...other}
 
 ### How to run
+
+Method 1 (when actively developing, is slower):
 `npm run dev`
+
+Method 2 (prefered):
+`npm run build`
 
 ### Running tests
 `npm run test`
+
+* Note about test: if tests fail wiht an error message such as "HTMLCanvasElement.prototype.getContext" just re-run the test and they should all pass. This is a bug with the npm package `canvas`.

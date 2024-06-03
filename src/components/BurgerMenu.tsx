@@ -10,9 +10,10 @@ import closeIcon from '@/assets/pl-icon-close.svg';
 import { MenuContext } from '@/context/MenuContext';
 
 /**
- * Burger menu icon component
+ * A simple component that dispalys the Burger menu icon and close icon
+ * for the mobile drawer. The logic is handled by MenuContext.
  *
- * @returns JSX
+ * @returns {JSX.Element} - The rendered component.
  */
 export default function BurgerMenu() {
   const { isOpen, setIsOpen } = useContext(MenuContext);

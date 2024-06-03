@@ -22,7 +22,7 @@ import { FlowerProps } from '@/types/flowers';
  * On scroll we hit the 'ref' element at the botton and use that to trigger (via an observer pattern)
  * the `fetchNextPage` fn from react query to load the next page.
  *
- * @returns JSX.Element
+ * @returns {JSX.Element} The rendered component.
  */
 function FlowerListings() {
   const { ref, inView } = useInView();

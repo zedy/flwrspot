@@ -12,9 +12,14 @@ import { MenuContext } from '@/context/MenuContext';
 import logo from '@/assets/logo.svg';
 
 /**
- * Presentational component for the Header and navigation
+ * Functional component for the Header html5 element of the app.
+ * It controlls the visibility of the Mobile drawer when navigating
+ * to another page.
  *
- * @returns JSX
+ * @param {Object} props - The component props.
+ * @param {React.ReactNode} children - The children elements to be wrapped.
+ * @param {boolean} padding - Controlls the type of padding the component provides.
+ * @returns {JSX.Element} - The rendered component.
  */
 export default function Header() {
   const { isOpen, setIsOpen } = useContext(MenuContext);

@@ -24,7 +24,7 @@ const LoginFormComponent = Loadable(
  * make a POST request to /users/login and get the auth_token (jwt) which the app
  * will pass to UserAuth to fetch the details of the logged in user from /users/me
  *
- * @returns JSX
+ * @returns {JSX.Element} - The rendered component.
  */
 function LoginAuth() {
   const { setShowLoader, isOpen, setIsOpen } = useContext(ModalContext);

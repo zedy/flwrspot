@@ -4,6 +4,7 @@ import { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
+import { UseMutateFunction } from '@tanstack/react-query';
 import dayjs from 'dayjs';
 
 // components
@@ -21,6 +22,7 @@ import { Value } from '@/types/date';
 
 // utils
 import { formErrorMessages } from '@/utils/helpers';
+import { RegisterData } from '@/api/auth';
 
 const { required, min3, min8, max16, max32, max64 } = formErrorMessages();
 
@@ -83,9 +85,16 @@ type FormData = {
 };
 
 type Props = {
-  mutationCallback: any;
+  mutationCallback: UseMutateFunction<any, unknown, RegisterData, unknown>;
 };
 
+/**
+ * The main component we use to handle the signup process elements.
+ *
+ * @param {Object} props - The component props.
+ * @param {Function} mutationCallback - A callback function which takes in params in for of RegisterData.
+ * @returns {JSX.Element} - The rendered component.
+ */
 export default function SignupForm({ mutationCallback }: Props) {
   const [dob, setDob] = useState<Date | ''>('');
   const [showCalendar, setShowCalendar] = useState<boolean>(false);
@@ -108,7 +117,7 @@ export default function SignupForm({ mutationCallback }: Props) {
       last_name: formData.lastName,
       email: formData.signupEmail,
       password: formData.signupPassword,
-      date_of_birth: dob,
+      date_of_birth: dob as string,
     });
   };
 

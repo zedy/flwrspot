@@ -21,8 +21,8 @@ type Props = {
  * Simple presentational components for displaying individual listing items
  * from the `api/v1/flowers` endpoint.
  *
- * @param param0 FlowerProps
- * @returns
+ * @param {FlowerProps} data - A object of key:string|number values.
+ * @returns {JSX.Element} - The rendered component.
  */
 function FlowerListingItem({ data }: Props) {
   const { latin_name, name, profile_picture, sightings } = data;

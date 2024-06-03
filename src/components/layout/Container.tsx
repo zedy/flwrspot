@@ -7,8 +7,10 @@ type Props = {
  * Simple presentational component for the container class to give more robustness
  * and flexibility
  *
- * @param children JSX.Element
- * @returns JSX.Element
+ * @param {Object} props - The component props.
+ * @param {React.ReactNode} children - The children elements to be wrapped.
+ * @param {boolean} padding - Controlls the type of padding the component provides.
+ * @returns {JSX.Element} - The rendered component.
  */
 export default function Container({ children, padding = true }: Props) {
   return (

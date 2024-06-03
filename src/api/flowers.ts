@@ -1,8 +1,11 @@
+// libs
+import { QueryFunctionContext } from '@tanstack/react-query';
+
 // utils
 import apiHandler from '@/utils/axiosHandler';
 
 // fetch all flower listings from api endpoint
-const getAllFlowers = (page: Record<string, number>) => {
+const getAllFlowers = (page: QueryFunctionContext<string[], any>) => {
   const { pageParam } = page;
 
   return apiHandler({}, `/flowers?page=${pageParam || 0}`, 'GET');

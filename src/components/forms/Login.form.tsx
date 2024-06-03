@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 // libs
+import { UseMutateFunction } from '@tanstack/react-query';
 import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -15,6 +16,7 @@ import { ModalContext } from '@/context/ModalContext';
 
 // utils
 import { formErrorMessages } from '@/utils/helpers';
+import { LoginData } from '@/api/auth';
 
 const { required } = formErrorMessages();
 
@@ -36,9 +38,16 @@ type FormData = {
 };
 
 type Props = {
-  mutationCallback: any;
+  mutationCallback: UseMutateFunction<any, unknown, LoginData, unknown>;
 };
 
+/**
+ * The main component that we use to handle the login elements and basic logic.
+ *
+ * @param {Object} props - The component props.
+ * @param {Function} mutationCallback - A callback function which takes in params in for of LoginData.
+ * @returns {JSX.Element} - The rendered component.
+ */
 export default function LoginForm({ mutationCallback }: Props) {
   const { setShowLoader } = useContext(ModalContext);
   const {

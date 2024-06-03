@@ -31,8 +31,14 @@ const alignItemsclassName = {
  * component is used a lot.
  *
  * @example <FlexWrapper flexDirection="col" justifyContent="center" alignItems="center" className="bg-red-500">Hello World</FlexWrapper>
- * @params @see FlexWrapperProperties
- * @returns React.ReactNode
+ *
+ * @param {Object} props - The component props.
+ * @param {React.ReactNode} children - The children elements to be wrapped.
+ * @param {string} flexDirection - The direction of the flex
+ * @param {string} justifyContent - The justify-content property of the component
+ * @param {string} alignItems - The align-items property of the component
+ * @param {string} className - The additional classes passed into the component
+ * @returns {JSX.Element} - The rendered component.
  */
 export default function FlexWrapper({
   children,

@@ -17,7 +17,7 @@ import useMediaQuery from '@/hooks/useMediaQuery';
  * The reason for splitting up the Desktop and Mobile was just
  * code clarity and modularity.
  *
- * @returns JSX
+ * @returns {JSX.Element} - The rendered component.
  */
 export default function MobileDrawer() {
   const { token } = useStore();

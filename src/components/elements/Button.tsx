@@ -23,7 +23,7 @@ const DEFAULT_CLASS =
  * The icons are passed in as React.ReactNode.
  *
  * @params @see ButtonProperties
- * @returns React.ReactNode
+ * @returns {JSX.Element} The rendered component.
  */
 export default function Button({
   children,

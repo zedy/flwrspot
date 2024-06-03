@@ -24,7 +24,7 @@ import { MenuContext } from '@/context/MenuContext';
  *
  * It shows the profile nav element (name + picture + drawer/modal)
  *
- * @returns JSX
+ * @returns {JSX.Element} - The rendered component.
  */
 function UserAuth() {
   const { currentUser, token, loginUser, getFullName } = useStore();

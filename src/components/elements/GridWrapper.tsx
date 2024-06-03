@@ -8,8 +8,11 @@ export type GridWrapperProperties = {
  * Presentational component used as the main grid wrapper for the listings.
  *
  * @example <GridWrapper className="bg-red-500">Hello World</GridWrapper>
- * @params @see GridWrapperProperties
- * @returns React.ReactNode
+ *
+ * @param {Object} props - The component props.
+ * @param {React.ReactNode} children - The children elements to be wrapped.
+ * @param {string} className - The additional classes passed into the component
+ * @returns {JSX.Element} - The rendered component.
  */
 export default function GridWrapper({
   children,

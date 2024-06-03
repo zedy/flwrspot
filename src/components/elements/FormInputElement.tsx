@@ -31,7 +31,15 @@ type Props = {
  * no state, it's just a simple input element. It does handle showing
  * errors for it's field.
  *
- * @param {Props} { onChange, onBlur, name, label, type, error }
+ * @param {Object} props - The component props.
+ * @param {string} label - The label name.
+ * @param {string} name - The name html5 attribute of the input.
+ * @param {string} type - Enum value for the input type.
+ * @param {FieldErrors} error - Object that contains the error message.
+ * @param {Function} onBlur - Function that will be fired on the on blur event.
+ * @param {Function} onChange - Function that will be fired on the on change event.
+ * @param {Function} onFocus - Function that will be fired on the on focus event.
+ * @returns {JSX.Element} - The rendered component.
  */
 function FormInputElement(
   { onChange, onBlur, name, label, type, error, onFocus }: Props,

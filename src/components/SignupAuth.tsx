@@ -23,7 +23,7 @@ const SignupFormComponent = Loadable(
  * we will receive the auth_token, we'll pass this to the UserAuth component
  * which will login the user and fetch the details from the /users/me api
  *
- * @returns JSX
+ * @returns {JSX.Element} - The rendered component.
  */
 function SignupAuth() {
   const { setToken } = useStore();

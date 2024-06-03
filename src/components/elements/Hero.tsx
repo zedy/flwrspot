@@ -11,8 +11,11 @@ type Props = {
 /**
  * Simple presentational component for displaying the Hero banner and it's contents
  *
- * @params Props
- * @returns
+ * @param {Object} props - The component props.
+ * @param {string} image - A absolute url of the image location.
+ * @param {string} headline - The primary H1 html5 tag of the component.
+ * @param {string} subtext - The subtext underneath the headline prop.
+ * @returns {JSX.Element} - The rendered component.
  */
 export default function Hero({ image, headline, subtext }: Props) {
   return (

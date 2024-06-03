@@ -16,10 +16,14 @@ export type Props = {
 };
 
 /**
- * A custom datepicker component that utiliazes the react-calendar lib.
+ * A functional component that renders an input element and a calendar.
+ * The calendar is shown conditionally based on the `visible` prop.
  *
- * @param Props
- * @returns JSX
+ * @param {Object} props - The component props.
+ * @param {Function} onChangeCallback - Callback function to handle date changes.
+ * @param {React.ReactNode} input - The input element to be rendered.
+ * @param {boolean} visible - Whether the calendar is visible.
+ * @returns {JSX.Element} A FlexWrapper component containing the input and conditionally rendered calendar.
  */
 export default function DatePicker({
   onChangeCallback,

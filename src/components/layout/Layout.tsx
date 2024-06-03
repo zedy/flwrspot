@@ -4,6 +4,11 @@ import Main from '@/components/layout/Main';
 import FlexWrapper from '../elements/FlexWrapper';
 import { MenuContextProvider } from '@/context/MenuContext';
 
+/**
+ * Basic presentational component.
+ *
+ * @returns {JSX.Element} - The rendered component.
+ */
 export default function Layout() {
   return (
     <FlexWrapper

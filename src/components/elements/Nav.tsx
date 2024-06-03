@@ -10,7 +10,7 @@ import { MenuContext } from '@/context/MenuContext';
 /**
  * Presentational component for the nav menu
  *
- * @returns JSX.Element
+ * @returns {JSX.Element} - The rendered component.
  */
 export default function Nav() {
   const { pathname } = useLocation();

@@ -16,8 +16,9 @@ type ProfileFieldsetProps = {
  * Simple reusable component used by <Profile /> so it wasn't
  * decoupled from the parent component.
  *
- * @param ProfileFieldsetProps
- * @returns
+ * @param {string} label - The label for the field.
+ * @param {string} value - The value.
+ * @returns {JSX.Element} - The rendered component.
  */
 function ProfileFieldset({ label, value }: ProfileFieldsetProps) {
   return (
@@ -42,7 +43,7 @@ function ProfileFieldset({ label, value }: ProfileFieldsetProps) {
  * Simple presentational components that displays the contents
  * of the /users/me endpoint.
  *
- * @returns JSX
+ * @returns {JSX.Element} - The rendered component.
  */
 export default function Profile() {
   const { currentUser, logoutUser, getFullName } = useStore();
