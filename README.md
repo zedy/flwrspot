@@ -22,11 +22,13 @@ Given the app requirements i have took the liberty to change some thing to impro
 
 ### How to run
 
-Method 1 (when actively developing, is slower):
-`npm run dev`
+Go into the root folder of the project and run via terminal either of the two commands.
+- Method 1 (when actively developing, is slower):
+1. `npm run dev`
 
-Method 2 (prefered):
-`npm run build`
+- Method 2 (prefered):
+1. `npm run build`
+2. `npm run preview`
 
 ### Running tests
 `npm run test`

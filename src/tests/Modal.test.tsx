@@ -14,15 +14,12 @@ const queryClient = new QueryClient();
 
 describe('Show modal', () => {
   beforeEach(() => {
-    // Create a div with #modal-root id and append it to document.body
-    // This simulates the modal root element that your modal portals into
     const modalRoot = document.createElement('div');
     modalRoot.setAttribute('id', 'modal-root');
     document.body.appendChild(modalRoot);
   });
 
   afterEach(() => {
-    // Clean up the modal root from the document body to avoid pollution between tests
     const modalRoot = document.getElementById('modal-root');
     if (modalRoot) {
       document.body.removeChild(modalRoot);
@@ -45,7 +42,6 @@ describe('Show modal', () => {
     const openModalButton = screen.getByTestId('modal-open-button');
     fireEvent.click(openModalButton);
 
-    // @ts-ignore: issue with type mismatch from extended matchers
     expect(screen.getByTestId('modal')).toBeInTheDocument();
   });
 });
