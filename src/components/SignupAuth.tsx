@@ -32,6 +32,7 @@ function SignupAuth() {
   const { mutate } = useQueryMutation(registerUserApi, 'signup', {
     onSuccess: (result) => {
       setToken(result.auth_token);
+      setShowLoader(false);
       messageToastSuccess(
         'Congratulations! You have successfully signed up for FlowrSpot!'
       );
